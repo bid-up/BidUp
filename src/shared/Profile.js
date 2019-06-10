@@ -17,7 +17,6 @@ class Profile extends Component {
     renderTemplate() {
         const user = this.props.user;
 
-        
         if(!user) {
             return '<div></div>';
         }
