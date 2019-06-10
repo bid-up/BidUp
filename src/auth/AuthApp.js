@@ -11,6 +11,7 @@ class AuthApp extends Component {
         const main = dom.querySelector('main');
 
         dom.insertBefore(header.render(), main);
+
         ui.start('#firebaseui-auth-container', {
             signInOptions: [
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -21,6 +22,7 @@ class AuthApp extends Component {
             callbacks: {
                 signInSuccessWithAuthResult: (res) => {
                     const userRef = usersRef.child(res.user.uid);
+ 
                     userRef.set({
                         uid: res.user.uid,
                         displayName: res.user.displayName,
