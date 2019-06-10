@@ -6,6 +6,7 @@ class LotDetail extends Component {
         const dom = this.renderDOM();
         const button = dom.querySelector('button');
         const lot = this.props.lot;
+
         if(!this.props.joined) {
             button.addEventListener('click', () => {
                 usersByLotRef
@@ -13,11 +14,11 @@ class LotDetail extends Component {
                     .child(auth.currentUser.uid)
                     .set({ uid: auth.currentUser.uid }); 
             });
-
         }
 
         return dom;
     }
+
     renderTemplate() {
         const lot = this.props.lot;
 

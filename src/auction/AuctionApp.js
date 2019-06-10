@@ -4,6 +4,7 @@ import { auth, lotsRef, usersByLotRef } from '../services/firebase.js';
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import LotDetail from './LotDetail.js';
+import Bidding from './Bidding.js';
 
 class AuctionApp extends Component {
     render() {
@@ -20,6 +21,9 @@ class AuctionApp extends Component {
         });
 
         main.appendChild(lotDetail.render());
+
+        const bidding = new Bidding({ joined: false });
+        main.appendChild(bidding.render());
         
         const searchParams = QUERY.parse(window.location.search);
         const lotKey = searchParams.key;
@@ -39,6 +43,7 @@ class AuctionApp extends Component {
                 users.forEach(user => {
                     if(user.uid === auth.currentUser.uid) {
                         lotDetail.update({ joined: true });
+                        bidding.update({ joined: true });
                     }
                 });
             });
