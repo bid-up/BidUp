@@ -1,6 +1,21 @@
 import Component from '../Component.js';
+import { auth, usersByLotRef } from '../services/firebase.js';
 
 class LotDetail extends Component {
+    render() {
+        const dom = this.renderDOM();
+        const button = dom.querySelector('button');
+        const lot = this.props.lot;
+        
+        button.addEventListener('click', () => {
+            usersByLotRef
+                .child(lot.key)
+                .child(auth.currentUser.uid)
+                .set({ uid: auth.currentUser.uid }); 
+        });
+
+        return dom;
+    }
     renderTemplate() {
         const lot = this.props.lot;
 
@@ -15,6 +30,7 @@ class LotDetail extends Component {
                 <ul>
                     <li>list item</li>
                 </ul>
+                <button>Join this Auction Lot</button>
             </div>
         `;
 

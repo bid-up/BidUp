@@ -5,7 +5,6 @@ import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import LotDetail from './LotDetail.js';
 
-
 class AuctionApp extends Component {
     render() {
         const dom = this.renderDOM();
@@ -14,7 +13,6 @@ class AuctionApp extends Component {
         const header = new Header({ title: 'Auction Lot' });
         main.prepend(header.render());
 
-        
         const lotDetail = new LotDetail({ lot: {} });
         main.appendChild(lotDetail.render());
         
@@ -27,7 +25,6 @@ class AuctionApp extends Component {
                 const val = snapshot.val();
                 lotDetail.update({ lot: val });
             });
-
 
         return dom;
     }

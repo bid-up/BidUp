@@ -20,7 +20,7 @@ class App extends Component {
                 const val = snapshot.val();
                 const lots = val ? Object.values(val) : [];
                 lotList.update({ lots });
-            })
+            });
 
         const addLot = new AddLot();
         main.appendChild(addLot.render());
