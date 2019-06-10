@@ -1,5 +1,6 @@
 import Component from '../Component.js';
 import { auth, usersByLotRef } from '../services/firebase.js';
+import ProductList from './ProductList.js';
 
 class LotDetail extends Component {
     render() {
@@ -19,6 +20,9 @@ class LotDetail extends Component {
             });
         }
 
+        const productList = new ProductList({ products: this.props.products });
+        dom.appendChild(productList.render());
+
         return dom;
     }
 
@@ -32,14 +36,7 @@ class LotDetail extends Component {
         return /*html*/`
             <div>
                 <h2>${lot.lotName}</h2>
-                <ul>
-                <!-- add lot detail here from add lot component-->
-                    <li>lot details</li>
-                </ul>
                 <!-- product images from add lot component -->
-                <ul>
-                    <li>list item</li>
-                </ul>
                 <button>Join this Auction Lot</button>
             </div>
         `;

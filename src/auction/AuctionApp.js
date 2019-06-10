@@ -1,5 +1,5 @@
 import QUERY from '../utils/QUERY.js';
-import { auth, lotsRef, usersByLotRef } from '../services/firebase.js';
+import { auth, lotsRef, usersByLotRef, productsByLotRef } from '../services/firebase.js';
 
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
@@ -16,8 +16,8 @@ class AuctionApp extends Component {
 
         const lotDetail = new LotDetail({ 
             lot: {},
-            joined: false
-        
+            joined: false,
+            products: []
         });
 
         main.appendChild(lotDetail.render());
@@ -47,7 +47,15 @@ class AuctionApp extends Component {
                     }
                 });
             });
-            
+
+        productsByLotRef
+            .child(lotKey)
+            .on('value', snapshot => {
+                const val = snapshot.val();
+                const products = val ? Object.values(val) : [];
+                lotDetail.update({ products });
+            });
+
 
         return dom;
     }
