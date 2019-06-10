@@ -16,3 +16,5 @@ export const db = firebase.database();
 export const usersRef = db.ref('users');
 export const lotsRef = db.ref('lots');
 export const usersByLotRef = db.ref('usersByLot');
+export const productsRef = db.ref('products');
+export const productsByLotRef = db.ref('productsByLot');

@@ -47,6 +47,7 @@ class AuctionApp extends Component {
                     }
                 });
             });
+            
 
         return dom;
     }

@@ -7,6 +7,7 @@ class Bidding extends Component {
         if(!joined) {
             return '<div></div>';
         }
+
         return /*html*/`
             <div>
                 <h2>name of item</h2>
@@ -19,6 +20,7 @@ class Bidding extends Component {
                     <button>$100</button>
                     <button>Max</button>
                 </div>
+                <p>Balance: </p>
                 <!-- Activity Feed List Component -->
             </div>
             

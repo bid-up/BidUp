@@ -12,7 +12,10 @@ class LotDetail extends Component {
                 usersByLotRef
                     .child(lot.key)
                     .child(auth.currentUser.uid)
-                    .set({ uid: auth.currentUser.uid }); 
+                    .set({ 
+                        uid: auth.currentUser.uid,
+                        balance: 500  
+                    });
             });
         }
 
