@@ -6,18 +6,24 @@ class LotDetail extends Component {
         const dom = this.renderDOM();
         const button = dom.querySelector('button');
         const lot = this.props.lot;
-        
-        button.addEventListener('click', () => {
-            usersByLotRef
-                .child(lot.key)
-                .child(auth.currentUser.uid)
-                .set({ uid: auth.currentUser.uid }); 
-        });
+        if(!this.props.joined) {
+            button.addEventListener('click', () => {
+                usersByLotRef
+                    .child(lot.key)
+                    .child(auth.currentUser.uid)
+                    .set({ uid: auth.currentUser.uid }); 
+            });
+
+        }
 
         return dom;
     }
     renderTemplate() {
         const lot = this.props.lot;
+
+        if(this.props.joined) {
+            return '<div></div>';
+        }
 
         return /*html*/`
             <div>
