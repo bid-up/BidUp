@@ -17,6 +17,7 @@ function resetTimer(lotKey) {
             .set({ time: seconds });
         if(timeRemaining < 0) {
             clearInterval(interval);
+            console.log('time is less than 0');
         }
     }, 1000);
 }
