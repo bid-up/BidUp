@@ -11,15 +11,28 @@
 
 .lot-list-container {
     display: flex;
+    flex-direction: column;
     height: 100%;
     flex-wrap: flex-wrap;
-    flex-flow: row wrap;
     justify-content: space-around;
-    align-items: stretch;
+    align-items: center;
+    
+}
+
+.lot-list-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    height: 60vh;
+    overflow: auto;
+   
 }
 
 .add-lot-button {
     width: 10%;
     height: auto;
+    display: flex;
+}
+
+.add-lot-container {
     display: flex;
 }

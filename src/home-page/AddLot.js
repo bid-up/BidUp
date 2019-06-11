@@ -90,21 +90,22 @@ class AddLot extends Component {
 
     renderTemplate() {
         return /*html*/`
-        <div>
-        <input class="add-lot-button" type="image" src="../../assets/add-button.png" alt="Submit" width="48" height="48">
-            <div id="myModal" class="modal">
-                <form class="modal-content">
-                    <label>Lot Name: <input name="lot-name" required></label>
-                    <button class="add-lot-to-database">Add Lot</button>
-                </form>
-                <form class="modal-products">
-                    <label>Product Name: <input name="product-name" required></label>
-                    <label>Product Image URL: <input name="product-image" required></label>
-                    <button class="add-products-to-database">Add Products</button>
-                </form>
-                <button id="close-modal" class="close-modal">DONE</button>
-            </div>
-            <button class="add-lot-form-button">Add Room and Items</button>
+        <div class="add-lot-container">
+            <h2>LOTS</h2>
+            <input class="add-lot-button" type="image" src="../../assets/add-button.png" alt="Submit" width="48" height="48">
+                <div id="myModal" class="modal">
+                    <form class="modal-content">
+                        <label>Lot Name: <input name="lot-name" required></label>
+                        <button class="add-lot-to-database">Add Lot</button>
+                    </form>
+                    <form class="modal-products">
+                        <label>Product Name: <input name="product-name" required></label>
+                        <label>Product Image URL: <input name="product-image" required></label>
+                        <button class="add-products-to-database">Add Products</button>
+                    </form>
+                    <button id="close-modal" class="close-modal">DONE</button>
+                </div>
+                <button class="add-lot-form-button">Add Room and Items</button>
         </div>
         `;
             
