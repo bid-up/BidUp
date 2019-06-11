@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 .lot-item {
     list-style: none;
     text-align: center;
@@ -16,23 +20,29 @@
     flex-wrap: flex-wrap;
     justify-content: space-around;
     align-items: center;
-    
+    margin: o auto;
 }
 
 .lot-list-container ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     height: 60vh;
     overflow: auto;
-   
+    padding: 0;
+    margin: 0 auto;
 }
 
-.add-lot-button {
-    width: 10%;
-    height: auto;
-    display: flex;
+.add-lot-form-button {
+    background: transparent;
+    border: none;
 }
 
 .add-lot-container {
     display: flex;
+    justify-content: center;
+}
+
+.add-lot-container img {
+    width: 75px;
 }
