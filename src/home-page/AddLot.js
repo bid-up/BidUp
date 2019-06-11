@@ -10,7 +10,6 @@ class AddLot extends Component {
 
         addLotFormButton.addEventListener('click', () => {
             const modal = form.querySelector('#myModal');
-            console.log(modal);
             modal.style.display = 'block';
         });
 
@@ -45,6 +44,26 @@ class AddLot extends Component {
             form.reset();
             lotNameInput.focus();
             document.activeElement.blur();
+
+            const modal = form.querySelector('#myModal');
+            modal.style.display = 'none';
+
+        });
+
+        const modal = form.querySelector('#myModal');
+
+        window.onclick = function(event) {
+
+            if(event.target === modal) {
+                modal.style.display = 'none';
+            } 
+        };
+
+        const closeModalButton = form.querySelector('.close-modal');
+
+        closeModalButton.addEventListener('click', () => {
+            const modal = form.querySelector('#myModal');
+            modal.style.display = 'none';
         });
 
         return form;
@@ -58,8 +77,11 @@ class AddLot extends Component {
                     <label>Lot Name: <input name="lot-name"></label>
                     <label>Product Name: <input name="product-name"></label>
                     <label>Product Image URL: <input name="product-image"></label>
+                    <label>Product Name: <input name="product-name"></label>
+                    <label>Product Image URL: <input name="product-image"></label>
                     <button class="add-lot-to-database">Add</button>
                 </form>
+                <button id="close-modal" class="close-modal">Close</button>
             </div>
 
             <button class="add-lot-form-button">Add Room and Items</button>
