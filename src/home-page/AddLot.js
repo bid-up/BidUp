@@ -57,7 +57,7 @@ class AddLot extends Component {
                     key: productRef.key
                 });
 
-            form.reset();
+            productForm.reset();
             lotNameInput.focus();
             document.activeElement.blur();
         
@@ -67,7 +67,7 @@ class AddLot extends Component {
 
         window.onclick = function(event) {
 
-            if(event.target === modal) {
+            if(event.target === modal) {``
                 modal.style.display = 'none';
             } 
         };
@@ -75,8 +75,15 @@ class AddLot extends Component {
         const closeModalButton = dom.querySelector('.close-modal');
 
         closeModalButton.addEventListener('click', () => {
-            const modal = dom.querySelector('#myModal');
-            modal.style.display = 'none';
+            if(window.confirm === true) {
+                const modal = dom.querySelector('#myModal');
+                modal.style.display = 'none';
+            } else {
+                const modal = dom.querySelector('#myModal');
+                modal.style.display = 'block';
+            }
+
+            window.confirm('are you done adding items?');
         });
 
         return dom;
@@ -87,12 +94,12 @@ class AddLot extends Component {
         <div>
             <div id="myModal" class="modal">
                 <form class="modal-content">
-                    <label>Lot Name: <input name="lot-name"></label>
+                    <label>Lot Name: <input name="lot-name" required></label>
                     <button class="add-lot-to-database">Add Lot</button>
                 </form>
                 <form class="modal-products">
-                    <label>Product Name: <input name="product-name"></label>
-                    <label>Product Image URL: <input name="product-image"></label>
+                    <label>Product Name: <input name="product-name" required></label>
+                    <label>Product Image URL: <input name="product-image" required></label>
                     <button class="add-products-to-database">Add Products</button>
                 </form>
                 <button id="close-modal" class="close-modal">DONE</button>
