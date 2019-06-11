@@ -67,7 +67,7 @@ class AddLot extends Component {
 
         window.onclick = function(event) {
 
-            if(event.target === modal) {``
+            if(event.target === modal) {
                 modal.style.display = 'none';
             } 
         };
@@ -75,7 +75,7 @@ class AddLot extends Component {
         const closeModalButton = dom.querySelector('.close-modal');
 
         closeModalButton.addEventListener('click', () => {
-            if(window.confirm === true) {
+            if(window.confirm('Are you done adding products?')) {
                 const modal = dom.querySelector('#myModal');
                 modal.style.display = 'none';
             } else {
@@ -83,7 +83,6 @@ class AddLot extends Component {
                 modal.style.display = 'block';
             }
 
-            window.confirm('are you done adding items?');
         });
 
         return dom;
