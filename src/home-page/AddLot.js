@@ -72,6 +72,7 @@ class AddLot extends Component {
     renderTemplate() {
         return /*html*/`
         <div>
+        <input class="add-lot-button" type="image" src="../../assets/add-button.png" alt="Submit" width="48" height="48">
             <div id="myModal" class="modal">
                 <form class="modal-content">
                     <label>Lot Name: <input name="lot-name"></label>
@@ -83,7 +84,6 @@ class AddLot extends Component {
                 </form>
                 <button id="close-modal" class="close-modal">Close</button>
             </div>
-
             <button class="add-lot-form-button">Add Room and Items</button>
         </div>
         `;

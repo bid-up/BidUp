@@ -1,4 +1,25 @@
-.lot-list {
+.lot-item {
     list-style: none;
     text-align: center;
+    background-color: #FFF;
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin: 6px 6px;
+}
+
+.lot-list-container {
+    display: flex;
+    height: 100%;
+    flex-wrap: flex-wrap;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.add-lot-button {
+    width: 10%;
+    height: auto;
+    display: flex;
 }
