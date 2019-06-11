@@ -24,7 +24,7 @@ class BiddingApp extends Component {
                     const auctioneer = new Auctioneer({ lot });
                     main.appendChild(auctioneer.render());
                 } else {
-                    const bidder = new Bidder();
+                    const bidder = new Bidder({ lot });
                     main.appendChild(bidder.render());
                 }
             });
