@@ -5,8 +5,10 @@ class Auctioneer extends Component {
     render() {
         const dom = this.renderDOM();
 
-        const timer = new StartTimer();
+        const timer = new StartTimer({ lot: this.props.lot });
         dom.appendChild(timer.render());
+
+
 
         return dom;
     }

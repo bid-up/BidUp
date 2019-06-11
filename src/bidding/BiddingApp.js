@@ -18,10 +18,10 @@ class BiddingApp extends Component {
         lotsRef
             .child(query.key)
             .on('value', snapshot => {
-                const val = snapshot.val();
-                const lotOwner = val.owner;
+                const lot = snapshot.val();
+                const lotOwner = lot.owner;
                 if(auth.currentUser.uid === lotOwner) {
-                    const auctioneer = new Auctioneer();
+                    const auctioneer = new Auctioneer({ lot });
                     main.appendChild(auctioneer.render());
                 } else {
                     const bidder = new Bidder();

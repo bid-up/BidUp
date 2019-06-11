@@ -8,7 +8,6 @@ class LotDetail extends Component {
         const button = dom.querySelector('button');
         const lot = this.props.lot;
 
-        
         button.addEventListener('click', () => {
             usersByLotRef
                 .child(lot.key)
