@@ -6,20 +6,34 @@ class Timer extends Component {
         const timerButton = dom.querySelector('button');
 
         timerButton.addEventListener('click', () => {
-            let dt = new Date();
-            console.log(dt, 'before');
-            dt.setSeconds(dt.getSeconds() + 10);
-            console.log(dt, 'after');
+            resetTimer();
+            timerButton.classList.add('hidden');
         });
 
-        return dom;
+        function resetTimer() {
+            const startDate = new Date().getTime();
+            const endDate = startDate + 5000;
+
+            const deadline = new Date(endDate).getTime();
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const timeRemaining = deadline - now;
+                const seconds = Math.ceil(timeRemaining % (1000 * 60) / 1000);
+                dom.querySelector('#seconds').innerHTML = (seconds);
+                if(timeRemaining < 0) {
+                    clearInterval(interval);
+                    dom.querySelector('#seconds').innerHTML = 'TIME UP';
+                }
+            });
+        }
+        return dom; 
     }
 
     renderTemplate() {
         return `
         <div>
             <button>Start Timer</button>
-            <p>Time: </p>
+            <p id="seconds"> </p>
         </div>
         `;
     }
