@@ -6,6 +6,14 @@ class AddLot extends Component {
         const form = this.renderDOM();
         const lotNameInput = form.querySelector('input[name=lot-name]');
 
+        const addLotFormButton = form.querySelector('.add-lot-form-button');
+
+        addLotFormButton.addEventListener('click', () => {
+            const modal = form.querySelector('#myModal');
+            console.log(modal);
+            modal.style.display = 'block';
+        });
+
         form.addEventListener('submit', event => {
             event.preventDefault();
             const formData = new FormData(form);
@@ -44,15 +52,20 @@ class AddLot extends Component {
 
     renderTemplate() {
         return /*html*/`
-            <form>
-                <label>Lot Name: <input name="lot-name"></label>
-                <label>Product Name: <input name="product-name"></label>
-                <label>Product Image URL: <input name="product-image"></label>
-                <!-- default balance -->
-                <!-- default time per product -->
-                <button>Add</button>
-            </form>
+        <div>
+            <div id="myModal" class="modal">
+                <form class="modal-content">
+                    <label>Lot Name: <input name="lot-name"></label>
+                    <label>Product Name: <input name="product-name"></label>
+                    <label>Product Image URL: <input name="product-image"></label>
+                    <button class="add-lot-to-database">Add</button>
+                </form>
+            </div>
+
+            <button class="add-lot-form-button">Add Room and Items</button>
+        </div>
         `;
+            
 
     }
 }

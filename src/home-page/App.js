@@ -31,7 +31,6 @@ class App extends Component {
         return /*html*/`
             <div>
                 <main>
-                Hello
                 </main>
             </div>
         `;

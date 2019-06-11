@@ -1,0 +1,21 @@
+.profile {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    justify-content: space-around;
+}
+
+.profile img {
+    border-radius: 100%;
+    width: 30%;
+}
+
+.username-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.profile span {
+    display: block;
+}

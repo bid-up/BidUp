@@ -16,7 +16,7 @@ class LotList extends Component {
 
     renderTemplate() {
         return /*html*/`
-            <ul>LIST</ul>
+            <ul class="lot-list">LOT LIST</ul>
         `;
 
     }
