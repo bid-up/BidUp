@@ -1,11 +1,9 @@
 import QUERY from '../utils/QUERY.js';
-import { auth, lotsRef, usersByLotRef, productsByLotRef } from '../services/firebase.js';
+import { lotsRef, productsByLotRef } from '../services/firebase.js';
 
 import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import LotDetail from './LotDetail.js';
-import Bidding from './Bidding.js';
-import Timer from './Timer.js';
 
 class AuctionApp extends Component {
     render() {
@@ -17,39 +15,19 @@ class AuctionApp extends Component {
 
         const lotDetail = new LotDetail({ 
             lot: {},
-            joined: false,
             products: []
         });
 
         main.appendChild(lotDetail.render());
-
-        const bidding = new Bidding({ joined: false });
-        main.appendChild(bidding.render());
         
         const searchParams = QUERY.parse(window.location.search);
         const lotKey = searchParams.key;
-        
-        const timer = new Timer({});
-        main.appendChild(timer.render());
 
         lotsRef 
             .child(lotKey)
             .on('value', snapshot => {
                 const val = snapshot.val();
                 lotDetail.update({ lot: val });
-            });
-
-        usersByLotRef
-            .child(lotKey)
-            .on('value', snapshot => {
-                const val = snapshot.val();
-                const users = val ? Object.values(val) : [];
-                users.forEach(user => {
-                    if(user.uid === auth.currentUser.uid) {
-                        lotDetail.update({ joined: true });
-                        bidding.update({ joined: true });
-                    }
-                });
             });
 
         productsByLotRef
@@ -60,8 +38,6 @@ class AuctionApp extends Component {
                 lotDetail.update({ products });
             });
         
-
-
         return dom;
     }
     renderTemplate() {
