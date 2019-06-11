@@ -1,20 +1,33 @@
 import Component from '../Component.js';
 import Bidder from './Bidder.js';
 import Auctioneer from './Auctioneer.js';
+import QUERY from '../utils/QUERY.js';
+import { auth, lotsRef } from '../services/firebase.js';
 
 class BiddingApp extends Component {
     render() {
         const dom = this.renderDOM();
         const main = dom.querySelector('main');
 
-        const bidder = new Bidder();
-        main.appendChild(bidder.render());
-
-        const auctioneer = new Auctioneer();
-        main.appendChild(auctioneer.render());
+        const query = QUERY.parse(window.location.search);
+        
+        lotsRef
+            .child(query.key)
+            .on('value', snapshot => {
+                const val = snapshot.val();
+                const lotOwner = val.owner;
+                if(auth.currentUser.uid === lotOwner) {
+                    const auctioneer = new Auctioneer();
+                    main.appendChild(auctioneer.render());
+                } else {
+                    const bidder = new Bidder();
+                    main.appendChild(bidder.render());
+                }
+            });
 
         return dom;
     }
+
     renderTemplate() {
         return /*html*/ `
             <div>
