@@ -1,4 +1,5 @@
 import Component from '../Component.js';
+import Header from '../shared/Header.js';
 import Bidder from './Bidder.js';
 import Auctioneer from './Auctioneer.js';
 import QUERY from '../utils/QUERY.js';
@@ -8,6 +9,9 @@ class BiddingApp extends Component {
     render() {
         const dom = this.renderDOM();
         const main = dom.querySelector('main');
+
+        const header = new Header({ title: 'BiddingApp' });
+        main.prepend(header.render());
 
         const query = QUERY.parse(window.location.search);
         

@@ -1,6 +1,16 @@
 import Component from '../Component.js';
+import MakeBid from './MakeBid.js';
 
 class Bidder extends Component {
+    render() {
+        const dom = this.renderDOM();
+
+        const makeBid = new MakeBid();
+        dom.appendChild(makeBid.render());
+
+        return dom;
+    }
+
     renderTemplate() {
         return /*html*/`
             <div>
@@ -9,11 +19,6 @@ class Bidder extends Component {
                 <img src="assets/tomatos.jpg">
                 <p>static details</p>
                 <p>highest bid</p> <!--dynamic data -->
-                <div>
-                    <button>$10</button>
-                    <button>$100</button>
-                    <button>Max</button>
-                </div>
                 <p>Balance: </p>
                 <!-- Activity Feed List Component -->
             </div>
