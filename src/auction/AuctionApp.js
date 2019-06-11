@@ -5,6 +5,7 @@ import Component from '../Component.js';
 import Header from '../shared/Header.js';
 import LotDetail from './LotDetail.js';
 import Bidding from './Bidding.js';
+import Timer from './Timer.js';
 
 class AuctionApp extends Component {
     render() {
@@ -28,6 +29,9 @@ class AuctionApp extends Component {
         const searchParams = QUERY.parse(window.location.search);
         const lotKey = searchParams.key;
         
+        const timer = new Timer();
+        main.appendChild(timer.render());
+
         lotsRef 
             .child(lotKey)
             .on('value', snapshot => {
@@ -55,6 +59,7 @@ class AuctionApp extends Component {
                 const products = val ? Object.values(val) : [];
                 lotDetail.update({ products });
             });
+        
 
 
         return dom;
