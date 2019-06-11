@@ -12,6 +12,7 @@ class AddLot extends Component {
         addLotFormButton.addEventListener('click', () => {
             const modal = dom.querySelector('#myModal');
             modal.style.display = 'block';
+            productForm.style.display = 'none';
         });
 
         let currentLotRef = null;
@@ -29,9 +30,13 @@ class AddLot extends Component {
                 lotName: formData.get('lot-name'),
                 owner: auth.currentUser.uid
             });
+
+            productForm.style.display = 'block';
+            lotForm.style.display = 'none';
         });
 
         const productForm = dom.querySelector('.modal-products');
+        const lotForm = dom.querySelector('.modal-content');
         
         productForm.addEventListener('submit', event => {
             event.preventDefault();
