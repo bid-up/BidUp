@@ -3,13 +3,15 @@ import { auth, lotsRef, productsRef, productsByLotRef } from '../services/fireba
 
 class AddLot extends Component {
     render() {
-        const form = this.renderDOM();
+        const dom = this.renderDOM();
+        const form = dom.querySelector('form');
         const lotNameInput = form.querySelector('input[name=lot-name]');
+        console.log(form);
 
-        const addLotFormButton = form.querySelector('.add-lot-form-button');
+        const addLotFormButton = dom.querySelector('.add-lot-form-button');
 
         addLotFormButton.addEventListener('click', () => {
-            const modal = form.querySelector('#myModal');
+            const modal = dom.querySelector('#myModal');
             modal.style.display = 'block';
         });
 
@@ -26,13 +28,15 @@ class AddLot extends Component {
             });
 
             const productRef = productsRef.push();
-
+            console.log(productRef, 'prodref');
+            
             productRef.set({ 
                 lotKey: lotRef.key, //might not need
                 key: productRef.key,
                 productName: formData.get('product-name'),
                 productURL: formData.get('product-image')
             });
+            console.log(formData.get('product-name'));
 
             productsByLotRef
                 .child(lotRef.key)
@@ -41,12 +45,9 @@ class AddLot extends Component {
                     key: productRef.key
                 });
 
-            form.reset();
+            // form.reset();
             lotNameInput.focus();
             document.activeElement.blur();
-
-            const modal = form.querySelector('#myModal');
-            modal.style.display = 'none';
 
         });
 
@@ -59,14 +60,14 @@ class AddLot extends Component {
             } 
         };
 
-        const closeModalButton = form.querySelector('.close-modal');
+        const closeModalButton = dom.querySelector('.close-modal');
 
         closeModalButton.addEventListener('click', () => {
-            const modal = form.querySelector('#myModal');
+            const modal = dom.querySelector('#myModal');
             modal.style.display = 'none';
         });
 
-        return form;
+        return dom;
     }
 
     renderTemplate() {
