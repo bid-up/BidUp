@@ -29,7 +29,7 @@ class AuctionApp extends Component {
         const searchParams = QUERY.parse(window.location.search);
         const lotKey = searchParams.key;
         
-        const timer = new Timer();
+        const timer = new Timer({});
         main.appendChild(timer.render());
 
         lotsRef 

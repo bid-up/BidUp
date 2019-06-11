@@ -1,4 +1,5 @@
 import Component from '../Component.js';
+// import { productsByLotRef } from '../services/firebase.js';
 
 class Timer extends Component {
     render() {
@@ -26,6 +27,13 @@ class Timer extends Component {
                 }
             });
         }
+
+        // const lot = this.props.lot;
+
+        // productsByLotRef
+        //     .child(lot.key)
+        //     .child(product.key)
+
         return dom; 
     }
 

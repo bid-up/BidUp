@@ -3,19 +3,20 @@ import { auth, lotsRef, productsRef, productsByLotRef } from '../services/fireba
 
 class AddLot extends Component {
     render() {
-        const form = this.renderDOM();
+        const dom = this.renderDOM();
+        const form = dom.querySelector('form');
         const lotNameInput = form.querySelector('input[name=lot-name]');
 
-        const addLotFormButton = form.querySelector('.add-lot-form-button');
+        const addLotFormButton = dom.querySelector('.add-lot-form-button');
 
         addLotFormButton.addEventListener('click', () => {
-            const modal = form.querySelector('#myModal');
-            console.log(modal);
+            const modal = dom.querySelector('#myModal');
             modal.style.display = 'block';
         });
 
         form.addEventListener('submit', event => {
             event.preventDefault();
+            console.log(form);
             const formData = new FormData(form);
 
             const lotRef = lotsRef.push();
@@ -47,7 +48,7 @@ class AddLot extends Component {
             document.activeElement.blur();
         });
 
-        return form;
+        return dom;
     }
 
     renderTemplate() {

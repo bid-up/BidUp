@@ -1,6 +1,26 @@
 import Component from '../Component.js';
+// import { productsByLotRef } from '../services/firebase.js';
+// import ProductList from './ProductList.js';
 
 class Bidding extends Component {
+    render() {
+        const dom = this.renderDOM();
+        // const lot = this.props.lot;
+        // const productList = new ProductList();
+        // dom.appendChild(productList.render());
+
+        // productsByLotRef
+        //     .child(lot.key)
+        //     .on('value', snapshot => {
+        //         const val = snapshot.val();
+        //         const products = val ? Object.values(val) : [];
+        //         productList.update(products);
+        //     });
+        
+
+        return dom;
+    }
+
     renderTemplate() {
         const joined = this.props.joined;
 
