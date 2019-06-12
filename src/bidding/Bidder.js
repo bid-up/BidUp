@@ -11,7 +11,7 @@ class Bidder extends Component {
         const timerDisplay = new TimerDisplay({ lot, time: '' });
         dom.appendChild(timerDisplay.render());
 
-        const makeBid = new MakeBid();
+        const makeBid = new MakeBid({ lot });
         dom.appendChild(makeBid.render());
 
         activeLotsRef
