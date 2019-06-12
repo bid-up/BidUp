@@ -11,17 +11,59 @@ class MakeBid extends Component {
         const lot = this.props.lot;
         
         bidTen.addEventListener('click', () => {
-            activeLotsRef
+            const bidAmount = 10;
+
+            usersByLotRef
                 .child(lot.key)
-                .child('resetTimer')
-                .set({
-                    reset: new Date().getTime()
+                .child(auth.currentUser.uid)
+                .child('holdingBalance')
+                .once('value', snapshot => {
+                    const val = snapshot.val();
+                    if(val.holdingBalance >= bidAmount) {
+                        // update reset timer in db
+                        activeLotsRef
+                            .child(lot.key)
+                            .child('resetTimer')
+                            .set({
+                                reset: new Date().getTime() // change to UID
+                            });
+                        // change holding balance 
+                        const updatedHoldingBalance = val.holdingBalance - bidAmount;
+                        usersByLotRef
+                            .child(lot.key)
+                            .child(auth.currentUser.uid)
+                            .child('holdingBalance')
+                            .set({
+                                holdingBalance: updatedHoldingBalance
+                            });
+                        // get highest bid
+                        let highestBid;
+                        usersByLotRef
+                            .child(lot.key)
+                            .child(auth.currentUser.uid)
+                            .child('highestBid')
+                            .once('value', snapshot => {
+                                const value = snapshot.val();
+                                value 
+                                    ? highestBid = value.highestBid 
+                                    : highestBid = 0
+                                            
+                                // set highest bid
+                                usersByLotRef
+                                    .child(lot.key)
+                                    .child(auth.currentUser.uid)
+                                    .child('highestBid')
+                                    .set({
+                                        highestBid: highestBid + bidAmount
+                                    });
+                            });
+                    }    
                 });
+    
         });
-
-
         return dom;
     }
+    
     renderTemplate() {
         const isDisabled = this.props.isDisabled;
 
