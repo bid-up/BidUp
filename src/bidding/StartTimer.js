@@ -14,6 +14,11 @@ class StartTimer extends Component {
             activeLotsRef
                 .child(lot.key)
                 .child('resetTimer')
+                .set({ reset: new Date().getTime() });
+
+            activeLotsRef
+                .child(lot.key)
+                .child('resetTimer')
                 .on('value', snapshot => {
                     snapshot.val();
                     resetTimer(lot.key);

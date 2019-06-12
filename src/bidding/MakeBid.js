@@ -54,15 +54,17 @@ class MakeBid extends Component {
 
         activeLotsRef
             .child(lot.key)
-            .child('timeRemaining')
+            .child('resetTimer')
             .on('value', snapshot => {
-                const val = snapshot.val();
-                if(val.time >= 5) {
+                const value = snapshot.val();
+                console.log(value)
+                if(value) {
                     bidTen.disabled = true;
                     bidFifty.disabled = true;
-                } else {
-                    bidTen.disabled = false;
-                    bidFifty.disabled = false;
+                    setTimeout(() => {
+                        bidTen.disabled = false;
+                        bidFifty.disabled = false;
+                    }, 1000);
                 }
             });
 
@@ -78,7 +80,10 @@ class MakeBid extends Component {
                     // check if user has enough money to bid
                     if(val.holdingBalance >= bidAmount) {
                         successfulBid(bidAmount, val);
-                    }    
+                    } else {
+                        bidTen.disabled = true;
+                        bidFifty.disabled = true;
+                    }
                 });
         });
 
@@ -105,8 +110,8 @@ class MakeBid extends Component {
 
         return /*html*/ `
             <div>
-                <button class="bid-ten">10</button>
-                <button class="bid-fifty">50</button>
+                <button disabled class="bid-ten">10</button>
+                <button disabled class="bid-fifty">50</button>
             </div>
         `;
     }
