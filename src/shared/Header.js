@@ -24,7 +24,7 @@ class Header extends Component {
         
         return /*html*/`
             <header>
-                <img id="logo" src="../../assets/Bid-Up-Logo1.png">
+                <img id="logo" src="../../assets/bidup-logo3.png">
             </header>
         `;
 

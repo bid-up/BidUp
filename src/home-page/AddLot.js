@@ -94,8 +94,10 @@ class AddLot extends Component {
             <h2>LOTS</h2>
                 <div id="myModal" class="modal">
                     <form class="modal-content">
-                        <label>Lot Name: <input name="lot-name" required></label>
-                        <button class="add-lot-to-database">Add Lot</button>
+                        <div class="modal-one">
+                            <label>Lot Name: <input name="lot-name" required></label>
+                            <button class="add-lot-to-database">Add Lot</button>
+                        </div>
                     </form>
                     <form class="modal-products">
                         <label>Product Name: <input name="product-name" required></label>

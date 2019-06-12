@@ -35,7 +35,6 @@ class Bidder extends Component {
             <div>
                 <h2>name of item</h2>
                 <img src="assets/tomatos.jpg">
-                <p>static details</p>
                 <p>highest bid</p> <!--dynamic data -->
                 <p>Balance: </p>
                 <!-- Activity Feed List Component -->
