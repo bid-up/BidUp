@@ -14,7 +14,10 @@ class StartTimer extends Component {
             activeLotsRef
                 .child(lot.key)
                 .child('resetTimer')
-                .set({ highestBidder: auth.currentUser.uid });
+                .set({ 
+                    highestBidder: auth.currentUser.uid,
+                    highestBid: 0
+                });
 
             activeLotsRef
                 .child(lot.key)

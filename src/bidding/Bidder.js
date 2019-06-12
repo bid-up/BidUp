@@ -32,14 +32,17 @@ class Bidder extends Component {
 
     renderTemplate() {
         const highestBidder = this.props.highestBidder;
+        const highestBid = this.props.highestBid;
+
         const bidderDisplayName = highestBidder ? highestBidder.displayName : 'no bidder';
+        const highestBidDisplay = highestBid ? highestBid : 0;
 
         return /*html*/`
             <div>
                 <h2>name of item</h2>
                 <img src="assets/tomatos.jpg">
-                <p>highest bid</p>
-                <p>Highest Bidder: ${bidderDisplayName}</p> <!--dynamic data -->
+                <p>Highest Bidder: ${bidderDisplayName}</p>
+                <p>Highest Bid: ${highestBidDisplay}</p>
                 <p>Balance: </p>
                 <!-- Activity Feed List Component -->
             </div>

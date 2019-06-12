@@ -32,11 +32,14 @@ class BiddingApp extends Component {
                         .on('value', snapshot => {
                             const value = snapshot.val();
                             const highestBidderUid = value.highestBidder;
+                            const highestBid = value.highestBid;
+
+                            // Get more info on highestBidder
                             usersRef
                                 .child(highestBidderUid)
                                 .on('value', snapshot => {
                                     const highestBidder = snapshot.val();
-                                    auctioneer.update({ highestBidder });
+                                    auctioneer.update({ highestBidder, highestBid });
                                 });
                         });
 
@@ -50,11 +53,13 @@ class BiddingApp extends Component {
                         .on('value', snapshot => {
                             const value = snapshot.val();
                             const highestBidderUid = value.highestBidder;
+                            const highestBid = value.highestBid;
+
                             usersRef
                                 .child(highestBidderUid)
                                 .on('value', snapshot => {
                                     const highestBidder = snapshot.val();
-                                    bidder.update({ highestBidder });
+                                    bidder.update({ highestBidder, highestBid });
                                 });
                         });
                 }

@@ -10,13 +10,13 @@ class MakeBid extends Component {
         const lot = this.props.lot;
         
         function successfulBid(bidAmount, val) {
-            // update reset timer in db
-            activeLotsRef
-                .child(lot.key)
-                .child('resetTimer')
-                .set({
-                    highestBidder: auth.currentUser.uid // change to UID
-                });
+            // // update reset timer in db
+            // activeLotsRef
+            //     .child(lot.key)
+            //     .child('resetTimer')
+            //     .set({
+            //         highestBidder: auth.currentUser.uid
+            //     });
 
             // change holding balance 
             const updatedHoldingBalance = val.holdingBalance - bidAmount;
@@ -46,6 +46,13 @@ class MakeBid extends Component {
                         .child(auth.currentUser.uid)
                         .child('highestBid')
                         .set({
+                            highestBid: highestBid + bidAmount
+                        });
+                    activeLotsRef
+                        .child(lot.key)
+                        .child('resetTimer')
+                        .set({
+                            highestBidder: auth.currentUser.uid,
                             highestBid: highestBid + bidAmount
                         });
                 });

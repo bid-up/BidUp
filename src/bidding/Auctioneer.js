@@ -31,12 +31,16 @@ class Auctioneer extends Component {
     
     renderTemplate() {
         const highestBidder = this.props.highestBidder;
+        const highestBid = this.props.highestBid;
+
         const bidderDisplayName = highestBidder ? highestBidder.displayName : 'no bidder';
+        const highestBidDisplay = highestBid ? highestBid : 0;
 
         return /*html*/ `
             <div>
             Auctioneer
             <p>Highest Bidder: ${bidderDisplayName}</p>
+            <p>Highest Bid: ${highestBidDisplay}</p>
             </div>
         `;
     }
