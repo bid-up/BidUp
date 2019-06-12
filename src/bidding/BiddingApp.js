@@ -31,16 +31,18 @@ class BiddingApp extends Component {
                         .child('resetTimer')
                         .on('value', snapshot => {
                             const value = snapshot.val();
-                            const highestBidderUid = value.highestBidder;
-                            const highestBid = value.highestBid;
-
-                            // Get more info on highestBidder
-                            usersRef
-                                .child(highestBidderUid)
-                                .on('value', snapshot => {
-                                    const highestBidder = snapshot.val();
-                                    auctioneer.update({ highestBidder, highestBid });
-                                });
+                            if(value) {
+                                const highestBidderUid = value.highestBidder;
+                                const highestBid = value.highestBid;
+    
+                                // Get more info on highestBidder
+                                usersRef
+                                    .child(highestBidderUid)
+                                    .on('value', snapshot => {
+                                        const highestBidder = snapshot.val();
+                                        auctioneer.update({ highestBidder, highestBid });
+                                    });
+                            }
                         });
 
                 } else {
@@ -52,15 +54,17 @@ class BiddingApp extends Component {
                         .child('resetTimer')
                         .on('value', snapshot => {
                             const value = snapshot.val();
-                            const highestBidderUid = value.highestBidder;
-                            const highestBid = value.highestBid;
-
-                            usersRef
-                                .child(highestBidderUid)
-                                .on('value', snapshot => {
-                                    const highestBidder = snapshot.val();
-                                    bidder.update({ highestBidder, highestBid });
-                                });
+                            if(value) {
+                                const highestBidderUid = value.highestBidder || '';
+                                const highestBid = value.highestBid || '';
+    
+                                usersRef
+                                    .child(highestBidderUid)
+                                    .on('value', snapshot => {
+                                        const highestBidder = snapshot.val();
+                                        bidder.update({ highestBidder, highestBid });
+                                    });
+                            }
                         });
                 }
             });

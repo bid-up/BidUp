@@ -11,6 +11,7 @@ class StartTimer extends Component {
         timerButton.addEventListener('click', () => {
             resetTimer(lot.key);
 
+            // Create active lot
             activeLotsRef
                 .child(lot.key)
                 .child('resetTimer')
@@ -19,6 +20,7 @@ class StartTimer extends Component {
                     highestBid: 0
                 });
 
+            // Reset timer when bid is placed
             activeLotsRef
                 .child(lot.key)
                 .child('resetTimer')
