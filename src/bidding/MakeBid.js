@@ -1,5 +1,4 @@
 import Component from '../Component.js';
-import resetTimer from './reset-timer.js';
 import { activeLotsRef, usersByLotRef, auth } from '../services/firebase.js';
 
 class MakeBid extends Component {
@@ -16,7 +15,7 @@ class MakeBid extends Component {
                 .child(lot.key)
                 .child('resetTimer')
                 .set({
-                    reset: new Date().getTime() // change to UID
+                    reset: auth.currentUser.uid // change to UID
                 });
 
             // change holding balance 
@@ -57,7 +56,6 @@ class MakeBid extends Component {
             .child('resetTimer')
             .on('value', snapshot => {
                 const value = snapshot.val();
-                console.log(value)
                 if(value) {
                     bidTen.disabled = true;
                     bidFifty.disabled = true;

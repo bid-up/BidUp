@@ -5,7 +5,6 @@ function isLotActive(lotKey) {
         .on('value', snapshot => {
             const val = snapshot.val();
             const lots = val ? Object.keys(val) : [];
-            console.log(lots.includes(lotKey));
             return lots.includes(lotKey);
         });
 }

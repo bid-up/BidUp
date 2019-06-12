@@ -1,6 +1,6 @@
 import Component from '../Component.js';
 import resetTimer from './reset-timer.js';
-import { activeLotsRef } from '../services/firebase.js';
+import { auth, activeLotsRef } from '../services/firebase.js';
 
 class StartTimer extends Component {
     render() {
@@ -14,7 +14,7 @@ class StartTimer extends Component {
             activeLotsRef
                 .child(lot.key)
                 .child('resetTimer')
-                .set({ reset: new Date().getTime() });
+                .set({ reset: auth.currentUser.uid });
 
             activeLotsRef
                 .child(lot.key)

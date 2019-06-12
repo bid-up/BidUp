@@ -14,14 +14,12 @@ function resetTimer(lotKey) {
         const now = new Date().getTime();
         const timeRemaining = deadline - now;
         const seconds = Math.ceil(timeRemaining % (1000 * 60) / 1000);
-        console.log(seconds);
         activeLotsRef
             .child(lotKey)
             .child('timeRemaining')
             .set({ time: seconds });
         if(timeRemaining < 0) {
             clearInterval(interval);
-            console.log('time is less than 0');
         }
     }, 1000);
 }
