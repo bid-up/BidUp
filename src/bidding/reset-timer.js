@@ -7,6 +7,7 @@ function resetTimer(lotKey) {
     const endDate = startDate + 6000;
 
     const deadline = new Date(endDate).getTime();
+    
     clearInterval(interval);
 
     interval = setInterval(() => {
