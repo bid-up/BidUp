@@ -30,10 +30,9 @@ class MakeBid extends Component {
 
             // get highest bid
             let highestBid;
-            usersByLotRef
+            activeLotsRef
                 .child(lot.key)
-                .child(auth.currentUser.uid)
-                .child('highestBid')
+                .child('resetTimer')
                 .once('value', snapshot => {
                     const value = snapshot.val();
                     value 
