@@ -5,9 +5,9 @@ class LotItem extends Component {
     renderTemplate() {
         const lot = this.props.lot;
         return /*html*/`
-        <li class="lot-item">
-            <a href="./auction-detail.html?key=${lot.key}">${lot.lotName}</a>
-        </li>
+            <li class="lot-item">
+                <a href="./auction-detail.html?key=${lot.key}">${lot.lotName}</a>
+            </li>
         `;
 
     }
