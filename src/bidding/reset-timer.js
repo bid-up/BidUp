@@ -1,12 +1,15 @@
 import { activeLotsRef } from '../services/firebase.js';
 
+let interval;
+
 function resetTimer(lotKey) {
     const startDate = new Date().getTime();
     const endDate = startDate + 6000;
 
     const deadline = new Date(endDate).getTime();
+    clearInterval(interval);
 
-    const interval = setInterval(() => {
+    interval = setInterval(() => {
         const now = new Date().getTime();
         const timeRemaining = deadline - now;
         const seconds = Math.ceil(timeRemaining % (1000 * 60) / 1000);

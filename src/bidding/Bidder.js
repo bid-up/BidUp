@@ -11,7 +11,7 @@ class Bidder extends Component {
         const timerDisplay = new TimerDisplay({ lot, time: '' });
         dom.appendChild(timerDisplay.render());
 
-        const makeBid = new MakeBid();
+        const makeBid = new MakeBid({ lot });
         dom.appendChild(makeBid.render());
 
         activeLotsRef
@@ -35,7 +35,6 @@ class Bidder extends Component {
             <div>
                 <h2>name of item</h2>
                 <img src="assets/tomatos.jpg">
-                <p>static details</p>
                 <p>highest bid</p> <!--dynamic data -->
                 <p>Balance: </p>
                 <!-- Activity Feed List Component -->
