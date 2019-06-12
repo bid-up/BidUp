@@ -1,5 +1,6 @@
 import Component from '../Component.js';
 import resetTimer from './reset-timer.js';
+import { activeLotsRef, usersByLotRef, auth } from '../services/firebase.js';
 
 class MakeBid extends Component {
     render() {
@@ -10,7 +11,12 @@ class MakeBid extends Component {
         const lot = this.props.lot;
         
         bidTen.addEventListener('click', () => {
-            resetTimer(lot.key);
+            activeLotsRef
+                .child(lot.key)
+                .child('resetTimer')
+                .set({
+                    reset: new Date().getTime()
+                });
         });
 
 
@@ -18,7 +24,7 @@ class MakeBid extends Component {
     }
     renderTemplate() {
         const isDisabled = this.props.isDisabled;
-        
+
         if(isDisabled) {
             return /*html*/ `
             <div>

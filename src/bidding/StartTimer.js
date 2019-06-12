@@ -28,6 +28,15 @@ class StartTimer extends Component {
                 });
 
             resetTimer(lot.key);
+
+            activeLotsRef
+                .child(lot.key)
+                .child('resetTimer')
+                .on('value', snapshot => {
+                    const val = snapshot.val();
+                    resetTimer(lot.key);
+                });
+                
             timerButton.classList.add('hidden');
         });
 
