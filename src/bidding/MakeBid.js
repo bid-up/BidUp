@@ -15,7 +15,7 @@ class MakeBid extends Component {
                 .child(lot.key)
                 .child('resetTimer')
                 .set({
-                    reset: auth.currentUser.uid // change to UID
+                    highestBidder: auth.currentUser.uid // change to UID
                 });
 
             // change holding balance 
@@ -51,18 +51,26 @@ class MakeBid extends Component {
                 });
         }
 
+        
+
+        // Disable and enable buttons to add delay after click
         activeLotsRef
             .child(lot.key)
             .child('resetTimer')
             .on('value', snapshot => {
                 const value = snapshot.val();
                 if(value) {
-                    bidTen.disabled = true;
-                    bidFifty.disabled = true;
-                    setTimeout(() => {
-                        bidTen.disabled = false;
-                        bidFifty.disabled = false;
-                    }, 1000);
+                    if(value.highestBidder !== auth.currentUser.uid) {
+                        bidTen.disabled = true;
+                        bidFifty.disabled = true;
+                        setTimeout(() => {
+                            bidTen.disabled = false;
+                            bidFifty.disabled = false;
+                        }, 1000);
+                    } else {
+                        bidTen.disabled = true;
+                        bidFifty.disabled = true;
+                    }
                 }
             });
 
@@ -97,7 +105,9 @@ class MakeBid extends Component {
                     // check if user has enough money to bid
                     if(val.holdingBalance >= bidAmount) {
                         successfulBid(bidAmount, val);
-                    }    
+                    } else {
+                        alert('Stop spending money you do not have!');
+                    }
                 });
         });
 

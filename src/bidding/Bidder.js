@@ -19,7 +19,7 @@ class Bidder extends Component {
             .child('timeRemaining')
             .on('value', snapsnot => {
                 const val = snapsnot.val();
-                if(!val.time) {
+                if(!val) {
                     timerDisplay.update({ time: '' });
                 } else {
                     timerDisplay.update({ time: val.time });
