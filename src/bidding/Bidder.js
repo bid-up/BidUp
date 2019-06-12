@@ -14,6 +14,7 @@ class Bidder extends Component {
         const makeBid = new MakeBid({ lot });
         dom.appendChild(makeBid.render());
 
+        // update timer display from database
         activeLotsRef
             .child(lot.key)
             .child('timeRemaining')
@@ -26,16 +27,19 @@ class Bidder extends Component {
                 }
             });
 
-
         return dom;
     }
 
     renderTemplate() {
+        const highestBidder = this.props.highestBidder;
+        const bidderDisplayName = highestBidder ? highestBidder.displayName : 'no bidder';
+
         return /*html*/`
             <div>
                 <h2>name of item</h2>
                 <img src="assets/tomatos.jpg">
-                <p>highest bid</p> <!--dynamic data -->
+                <p>highest bid</p>
+                <p>Highest Bidder: ${bidderDisplayName}</p> <!--dynamic data -->
                 <p>Balance: </p>
                 <!-- Activity Feed List Component -->
             </div>
