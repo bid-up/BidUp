@@ -67,7 +67,6 @@ class MakeBid extends Component {
             });
 
         bidTen.addEventListener('click', () => {
-            console.log('hello')
             const bidAmount = 10;
             // get holding balance
             usersByLotRef
@@ -79,11 +78,26 @@ class MakeBid extends Component {
                     // check if user has enough money to bid
                     if(val.holdingBalance >= bidAmount) {
                         successfulBid(bidAmount, val);
-                        console.log('bid success');
                     }    
                 });
-    
         });
+
+        bidFifty.addEventListener('click', () => {
+            const bidAmount = 50;
+            // get holding balance
+            usersByLotRef
+                .child(lot.key)
+                .child(auth.currentUser.uid)
+                .child('holdingBalance')
+                .once('value', snapshot => {
+                    const val = snapshot.val();
+                    // check if user has enough money to bid
+                    if(val.holdingBalance >= bidAmount) {
+                        successfulBid(bidAmount, val);
+                    }    
+                });
+        });
+
         return dom;
     }
     
