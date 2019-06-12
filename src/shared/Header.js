@@ -1,10 +1,14 @@
 import Component from '../Component.js';
 import Profile from './Profile.js';
 import { auth } from '../services/firebase.js';
+import NavBar from './NavBar.js';
 
 class Header extends Component {
     render() {
         const dom = this.renderDOM();
+
+        const navBar = new NavBar();
+        dom.appendChild(navBar.render());
 
         const profile = new Profile();
         dom.appendChild(profile.render());
@@ -16,10 +20,11 @@ class Header extends Component {
         return dom;
     }
     renderTemplate() {
-        const title = this.props.title || document.title;
+        // const title = this.props.title || document.title;
+        
         return /*html*/`
             <header>
-                <h1>${title}</h1>
+                <img id="logo" src="../../assets/Bid-Up-Logo1.png">
             </header>
         `;
 

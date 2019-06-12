@@ -11,6 +11,9 @@ class App extends Component {
 
         const header = new Header({ title: 'Bid Up' });
         dom.prepend(header.render());
+        
+        const addLot = new AddLot();
+        main.appendChild(addLot.render());
 
         const lotList = new LotList({ lots: [] });
         main.appendChild(lotList.render());
@@ -22,8 +25,6 @@ class App extends Component {
                 lotList.update({ lots });
             });
 
-        const addLot = new AddLot();
-        main.appendChild(addLot.render());
 
         return dom;
     }

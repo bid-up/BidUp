@@ -3,20 +3,23 @@ import LotItem from './LotItem.js';
 
 class LotList extends Component {
     render() {
-        const list = this.renderDOM();
+        const dom = this.renderDOM();
+        const list = dom.querySelector('ul');
         const lots = this.props.lots;
 
         lots.forEach(lot => {
             const lotItem = new LotItem({ lot });
-            list.appendChild(lotItem.render());
+            list.prepend(lotItem.render());
         });
 
-        return list;
+        return dom;
     }
 
     renderTemplate() {
         return /*html*/`
-            <ul class="lot-list">LOT LIST</ul>
+            <div class="lot-list-container">
+                <ul></ul>
+            </div>
         `;
 
     }

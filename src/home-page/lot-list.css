@@ -1,4 +1,48 @@
-.lot-list {
+body {
+    margin: 0;
+}
+
+.lot-item {
     list-style: none;
     text-align: center;
+    background-color: #FFF;
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin: 6px 6px;
+}
+
+.lot-list-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-wrap: flex-wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: o auto;
+}
+
+.lot-list-container ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 60vh;
+    overflow: auto;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.add-lot-form-button {
+    background: transparent;
+    border: none;
+}
+
+.add-lot-container {
+    display: flex;
+    justify-content: center;
+}
+
+.add-lot-container img {
+    width: 75px;
 }
