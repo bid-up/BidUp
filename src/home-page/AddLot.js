@@ -20,7 +20,6 @@ class AddLot extends Component {
         //event listener for Lot
         form.addEventListener('submit', event => {
             event.preventDefault();
-            console.log(form);
             const formData = new FormData(form);
 
             const lotRef = lotsRef.push();

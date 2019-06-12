@@ -18,3 +18,5 @@ export const lotsRef = db.ref('lots');
 export const usersByLotRef = db.ref('usersByLot');
 export const productsRef = db.ref('products');
 export const productsByLotRef = db.ref('productsByLot');
+export const activeLotsRef = db.ref('activeLots');
+
