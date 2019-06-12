@@ -9,25 +9,21 @@ class StartTimer extends Component {
         const lot = this.props.lot;
 
         timerButton.addEventListener('click', () => {
+            resetTimer(lot.key);
 
-            // Add lot to activeLots if not in activeLots already
             activeLotsRef
+                .child(lot.key)
+                .child('resetTimer')
+                .set({ reset: new Date().getTime() });
+
+            activeLotsRef
+                .child(lot.key)
+                .child('resetTimer')
                 .on('value', snapshot => {
-                    const val = snapshot.val();
-                    const lots = val ? Object.keys(val) : [];
-                    if(!lots.includes(lot.key)) {
-                        activeLotsRef  
-                            .child(lot.key)
-                            .set({
-                                highestBid: 0,
-                                highestBidder: '',
-                                timeRemaining: 5,
-                                currentProduct: ''
-                            });
-                    }
+                    snapshot.val();
+                    resetTimer(lot.key);
                 });
 
-            resetTimer(lot.key);
             timerButton.classList.add('hidden');
         });
 
