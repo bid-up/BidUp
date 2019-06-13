@@ -9,25 +9,30 @@ class MakeBid extends Component {
 
         const lot = this.props.lot;
         
-        function successfulBid(bidAmount, val) {
-            // // update reset timer in db
-            // activeLotsRef
-            //     .child(lot.key)
-            //     .child('resetTimer')
-            //     .set({
-            //         highestBidder: auth.currentUser.uid
-            //     });
-
-            // change holding balance 
-            const updatedHoldingBalance = val.holdingBalance - bidAmount;
+        // this happens when a user has enough money to bid
+        function successfulBid(bidAmount) {
+            // decrease holding balance by bid amount
+            // get holding balance
             usersByLotRef
                 .child(lot.key)
                 .child(auth.currentUser.uid)
                 .child('holdingBalance')
-                .set({
-                    holdingBalance: updatedHoldingBalance
+                .once('value', snapshot => {
+                    const val = snapshot.val();
+                    const holdingBalance = val.holdingBalance;
+
+                    // update holding balance 
+                    const updatedHoldingBalance = holdingBalance - bidAmount;
+                    usersByLotRef
+                        .child(lot.key)
+                        .child(auth.currentUser.uid)
+                        .child('holdingBalance')
+                        .set({
+                            holdingBalance: updatedHoldingBalance
+                        });
                 });
 
+            // set highest bidder and increase highest bid in db
             // get highest bid
             let highestBid;
             activeLotsRef
@@ -38,28 +43,24 @@ class MakeBid extends Component {
                     value 
                         ? highestBid = value.highestBid 
                         : highestBid = 0;
-                                
-                    // set highest bid
-                    usersByLotRef
-                        .child(lot.key)
-                        .child(auth.currentUser.uid)
-                        .child('highestBid')
-                        .set({
-                            highestBid: highestBid + bidAmount
-                        });
+                    console.log('current highestBid', highestBid);
+
+                    // set highest bidder (person who just bid)
+                    // set highest bid 
+                    const newHighestBid = highestBid + bidAmount;
+                    console.log('newHighestBId', newHighestBid);
                     activeLotsRef
                         .child(lot.key)
                         .child('resetTimer')
                         .set({
                             highestBidder: auth.currentUser.uid,
-                            highestBid: highestBid + bidAmount
+                            highestBid: newHighestBid  //increase by bidAmount
                         });
                 });
         }
 
-        
-
         // Disable and enable buttons to add delay after click
+        // Detect bid click of anyone
         activeLotsRef
             .child(lot.key)
             .child('resetTimer')
@@ -82,39 +83,110 @@ class MakeBid extends Component {
 
         bidTen.addEventListener('click', () => {
             const bidAmount = 10;
-            // get holding balance
-            usersByLotRef
+
+            // check if user has enough money to bid
+            // if highest bid plus bid amount is not higher than balance
+            
+            // get highest bid
+            let highestBid;
+            activeLotsRef
                 .child(lot.key)
-                .child(auth.currentUser.uid)
-                .child('holdingBalance')
+                .child('resetTimer')
                 .once('value', snapshot => {
-                    const val = snapshot.val();
-                    // check if user has enough money to bid
-                    if(val.holdingBalance >= bidAmount) {
-                        successfulBid(bidAmount, val);
-                    } else {
-                        bidTen.disabled = true;
-                        bidFifty.disabled = true;
-                    }
+                    const value = snapshot.val();
+                    value 
+                        ? highestBid = value.highestBid 
+                        : highestBid = 0;
+            
+                    // get balance
+                    usersByLotRef
+                        .child(lot.key)
+                        .child(auth.currentUser.uid)
+                        .child('balance')
+                        .once('value', snapshot => {
+                            const val = snapshot.val();
+                            const balance = val.balance;
+
+                            // check if user has enough money
+                            if(highestBid + 10 <= balance) {
+                                successfulBid(bidAmount);
+                            } else {
+                                bidTen.disabled = true;
+                                bidFifty.disabled = true;
+                            }
+                        });
                 });
+
+            // // get holding balance (for display)
+            // usersByLotRef
+            //     .child(lot.key)
+            //     .child(auth.currentUser.uid)
+            //     .child('holdingBalance')
+            //     .once('value', snapshot => {
+            //         const val = snapshot.val();
+                    
+            //         if(val.holdingBalance >= bidAmount) {
+            //             successfulBid(bidAmount);
+            //         } else {
+            //             bidTen.disabled = true;
+            //             bidFifty.disabled = true;
+            //         }
+            //     });
         });
 
         bidFifty.addEventListener('click', () => {
             const bidAmount = 50;
-            // get holding balance
-            usersByLotRef
+
+            // check if user has enough money to bid
+            // if highest bid plus bid amount is not higher than balance
+            
+            // get highest bid
+            let highestBid;
+            activeLotsRef
                 .child(lot.key)
-                .child(auth.currentUser.uid)
-                .child('holdingBalance')
+                .child('resetTimer')
                 .once('value', snapshot => {
-                    const val = snapshot.val();
-                    // check if user has enough money to bid
-                    if(val.holdingBalance >= bidAmount) {
-                        successfulBid(bidAmount, val);
-                    } else {
-                        alert('Stop spending money you do not have!');
-                    }
+                    const value = snapshot.val();
+                    value 
+                        ? highestBid = value.highestBid 
+                        : highestBid = 0;
+            
+                    // get balance
+                    usersByLotRef
+                        .child(lot.key)
+                        .child(auth.currentUser.uid)
+                        .child('balance')
+                        .once('value', snapshot => {
+                            const val = snapshot.val();
+                            const balance = val.balance;
+
+                            // check if user has enough money
+                            if(highestBid + 50 <= balance) {
+                                successfulBid(bidAmount, highestBid);
+                            } else if(highestBid + 10 <= balance) {
+                                bidFifty.disabled = true;
+                            } else {
+                                bidTen.disabled = true;
+                                bidFifty.disabled = true;
+                            }
+                        });
                 });
+
+            // // get holding balance (for display)
+            // usersByLotRef
+            //     .child(lot.key)
+            //     .child(auth.currentUser.uid)
+            //     .child('holdingBalance')
+            //     .once('value', snapshot => {
+            //         const val = snapshot.val();
+                    
+            //         if(val.holdingBalance >= bidAmount) {
+            //             successfulBid(bidAmount, val);
+            //         } else {
+            //             bidTen.disabled = true;
+            //             bidFifty.disabled = true;
+            //         }
+            //     });
         });
 
         return dom;
