@@ -19,17 +19,22 @@ class Bidder extends Component {
         const productItem = new ProductItem({ product: {} });
         dom.appendChild(productItem.render());
 
+        // update timer display from database
         activeLotsRef
             .child(lot.key)
             .child('timeRemaining')
             .on('value', snapsnot => {
                 const val = snapsnot.val();
-                if(!val.time) {
+                if(!val) {
                     timerDisplay.update({ time: '' });
                 } else {
                     timerDisplay.update({ time: val.time });
+                    if(val.time <= 0) {
+                        window.location = './results.html';
+                    }
                 }
             });
+
 
         productsByLotRef
             .child(lot.key)
@@ -52,9 +57,18 @@ class Bidder extends Component {
     }
 
     renderTemplate() {
+        const highestBidder = this.props.highestBidder;
+        const highestBid = this.props.highestBid;
+
+        const bidderDisplayName = highestBidder ? highestBidder.displayName : 'no bidder';
+        const highestBidDisplay = highestBid ? highestBid : 0;
+
         return /*html*/`
             <div>
-                <p>highest bid</p> <!--dynamic data -->
+                <h2>name of item</h2>
+                <img src="assets/tomatos.jpg">
+                <p>Highest Bidder: ${bidderDisplayName}</p>
+                <p>Highest Bid: ${highestBidDisplay}</p>
                 <p>Balance: </p>
                 <!-- Activity Feed List Component -->
             </div>
