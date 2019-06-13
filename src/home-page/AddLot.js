@@ -6,7 +6,7 @@ class AddLot extends Component {
         const form = dom.querySelector('form');
         const productForm = dom.querySelector('.modal-products');
         const modal = form.querySelector('#myModal');
-        const addLotFormButton = dom.querySelector('.add-lot-form-button');
+        const addLotFormButton = dom.querySelector('.add-button');
         addLotFormButton.addEventListener('click', () => {
             const modal = dom.querySelector('#myModal');
             modal.style.display = 'block';
@@ -61,6 +61,7 @@ class AddLot extends Component {
         return /*html*/`
         <div class="add-lot-container">
             <h2>LOTS</h2>
+            <div><button class="add-button sub-button"></button></div>
                 <div id="myModal" class="modal">
                     <form class="modal-content">
                         <div class="modal-one">
@@ -72,7 +73,6 @@ class AddLot extends Component {
                     </form>
                     <button id="close-modal" class="close-modal">CLOSE</button>
                 </div>
-                <button class="add-lot-form-button"><img src="../../assets/add-button.png"></button>
         </div>
         `;
             

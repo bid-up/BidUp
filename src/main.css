@@ -21,6 +21,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+button {
+    outline: none; 
+  }
+
 .hidden {
     display: none;
 }
