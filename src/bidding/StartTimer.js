@@ -5,10 +5,12 @@ import { auth, activeLotsRef } from '../services/firebase.js';
 class StartTimer extends Component {
     render() {
         const dom = this.renderDOM();
-        const timerButton = dom.querySelector('button');
+        const timerButton = dom.querySelector('.start-button');
         const lot = this.props.lot;
 
         timerButton.addEventListener('click', () => {
+            timerButton.classList.add('hidden');
+
             resetTimer(lot.key);
 
             // Create active lot
@@ -28,17 +30,26 @@ class StartTimer extends Component {
                     snapshot.val();
                     resetTimer(lot.key);
                 });
-
-            timerButton.classList.add('hidden');
         });
+
+        activeLotsRef
+            .child(lot.key)
+            .child('resetTimer')
+            .on('value', snapshot => {
+                const val = snapshot.val();
+                if(val) {
+                    timerButton.classList.add('hidden');
+                }
+            });
+
 
         return dom; 
     }
 
     renderTemplate() {
         return `
-        <div>
-            <button>Start Timer</button>
+        <div class="start-button-container">
+            <button class="start-button">Start Timer</button>
         </div>
         `;
     }
