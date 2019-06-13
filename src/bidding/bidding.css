@@ -1,0 +1,89 @@
+.bid-ten span { 
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+    position: relative; 
+    z-index: 1;
+}
+
+.bid-ten {
+    border: solid 6px #000;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    background: #ffcb1f;
+    font-weight: 700;
+    background-color: none;
+    padding: 15px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+}
+
+.bid-ten:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 200%;
+    width: 160%;
+    background: #fff;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+  
+.bid-ten:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+
+.bid-fifty span { 
+    color: #000;
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: bolder;
+    position: relative; 
+    z-index: 1;
+}
+
+.bid-fifty {
+    border: solid 6px #000;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    background: #ffcb1f;
+    font-weight: 700;
+    background-color: none;
+    padding: 15px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+}
+
+.bid-fifty:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 220%;
+    width: 140%;
+    background: #fff;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+  
+.bid-fifty:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}

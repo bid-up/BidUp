@@ -6,12 +6,13 @@ import NavBar from './NavBar.js';
 class Header extends Component {
     render() {
         const dom = this.renderDOM();
+        const navProfile = dom.querySelector('.nav-profile');
 
         const navBar = new NavBar();
-        dom.appendChild(navBar.render());
+        navProfile.appendChild(navBar.render());
 
         const profile = new Profile();
-        dom.appendChild(profile.render());
+        navProfile.appendChild(profile.render());
 
         auth.onAuthStateChanged(user => {
             profile.update({ user });
@@ -24,7 +25,10 @@ class Header extends Component {
         
         return /*html*/`
             <header>
-                <img id="logo" src="../../assets/bidup-logo3.png">
+                <div class="logo">
+                    <img src="../../assets/bidup-logo3.png">
+                </div>
+                <div class="nav-profile"></div>
             </header>
         `;
 
