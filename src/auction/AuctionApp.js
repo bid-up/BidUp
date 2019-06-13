@@ -20,16 +20,19 @@ class AuctionApp extends Component {
 
         main.appendChild(lotDetail.render());
         
+        // Grab lot key from URL
         const searchParams = QUERY.parse(window.location.search);
         const lotKey = searchParams.key;
 
+        // Look up lot info and pass as props
         lotsRef 
             .child(lotKey)
             .on('value', snapshot => {
-                const val = snapshot.val();
-                lotDetail.update({ lot: val });
+                const lot = snapshot.val();
+                lotDetail.update({ lot });
             });
 
+        // Get products in lot and pass as props
         productsByLotRef
             .child(lotKey)
             .on('value', snapshot => {

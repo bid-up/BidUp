@@ -21,8 +21,7 @@ class Bidder extends Component {
         productItemUl.appendChild(productItem.render());
 
         const bidderBalance = new BidderBalance({ 
-            balance: 500,
-            holdingBalance: 0
+            balance: 500
         });
 
         dom.appendChild(bidderBalance.render());
