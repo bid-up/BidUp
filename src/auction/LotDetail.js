@@ -21,7 +21,7 @@ class LotDetail extends Component {
         // When user joins, set initial balance and holding balance
         joinButton.addEventListener('click', () => {
             // Generate random balance in range from 100-500
-            const randomBalance = getRandomBalance(1, 5);
+            const randomBalance = getRandomBalance(1, 10);
 
             // Add balance when user joins lot
             usersByLotRef
