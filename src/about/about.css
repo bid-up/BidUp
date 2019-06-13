@@ -83,3 +83,10 @@ li {
 .about-person li {
     margin-right: 1px;
 }
+
+/* mobile style */
+@media only screen and (max-width: 400px) {
+    .about-container {
+        display: flex;
+        flex-direction: column;
+}
