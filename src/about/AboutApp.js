@@ -22,7 +22,6 @@ class AboutApp extends Component {
                             <div class="about-person">
                                 <h2>Carlos</h2>
                                 <span class="avatar-on-hover">
-                                    <img class="avatar-front" src="assets/about/carlos.png">
                                     <img class="avatar-back" src="assets/about/color-carlos.png">
                                 </span>
                                 <ul>
@@ -34,7 +33,6 @@ class AboutApp extends Component {
                             <div class="about-person">
                                 <h2>Leigh-Ann</h2>
                                 <span class="avatar-on-hover">
-                                    <img class="avatar-front" src="assets/about/leigh-ann.jpeg">
                                     <img class="avatar-back" src="assets/about/color-leigh-ann.jpeg">
                                 </span>
                                 <ul>
@@ -46,7 +44,6 @@ class AboutApp extends Component {
                             <div class="about-person">
                                 <h2>Lili</h2>
                                 <span class="avatar-on-hover">
-                                    <img class="avatar-front" src="assets/about/lili.jpeg">
                                     <img class="avatar-back" src="assets/about/color-lili.jpeg">
                                 </span>
                                 <ul>
@@ -58,7 +55,6 @@ class AboutApp extends Component {
                             <div class="about-person">
                             <h2>Susan</h2>
                                 <span class="avatar-on-hover">
-                                    <img class="avatar-front" src="assets/about/susan.jpeg">
                                     <img class="avatar-back" src="assets/about/color-susan.jpeg">
                                 </span>
                                 <ul>
@@ -70,7 +66,6 @@ class AboutApp extends Component {
                             <div class="about-person">
                             <h2>Wes</h2>
                                 <span class="avatar-on-hover">
-                                    <img class="avatar-front" src="assets/about/wes.jpeg">
                                     <img class="avatar-back" src="assets/about/color-wes.jpeg">
                                 </span>
                                 <ul>

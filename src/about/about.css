@@ -13,8 +13,8 @@ ul {
 li {
     height: auto;
 }
-
-.avatar-on-hover {
+/*code that transition from B&W to color, but messes up layout
+/* .avatar-on-hover {
     position: relative;	
 }
 .avatar-on-hover img {
@@ -36,7 +36,15 @@ li {
 
 .avatar-on-hover:hover > .avatar-front {
     opacity: 0;
+} */
+
+.avatar-on-hover img {
+    border-radius: 100%;
+    height: 25vh;
+    width: 12vw;
+    margin-bottom: 5px;
 }
+
 
 .about-person {
     list-style: none;
