@@ -7,8 +7,8 @@ class BidderBalance extends Component {
 
         return /*html*/ `
         <div>
-            <p>Your Balance: ${balance}</p>
-            <p>Remaining Bet Balance: ${holdingBalance}</p>
+            <p>Available Betting Funds: ${holdingBalance}</p>
+            <p>Your Total Balance: ${balance}</p>
         </div>
         `;
     }

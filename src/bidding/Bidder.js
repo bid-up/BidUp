@@ -17,7 +17,7 @@ class Bidder extends Component {
         dom.appendChild(makeBid.render());
         
         const productItem = new ProductItem({ product: {} });
-        dom.appendChild(productItem.render());
+        dom.prepend(productItem.render());
 
         const bidderBalance = new BidderBalance({ 
             balance: 500,
@@ -85,8 +85,6 @@ class Bidder extends Component {
 
         return /*html*/`
             <div>
-                <h2>name of item</h2>
-                <img src="assets/tomatos.jpg">
                 <p>Highest Bidder: ${bidderDisplayName}</p>
                 <p>Highest Bid: ${highestBidDisplay}</p>
                 <!-- Activity Feed List Component -->
