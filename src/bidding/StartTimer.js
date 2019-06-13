@@ -48,7 +48,7 @@ class StartTimer extends Component {
 
     renderTemplate() {
         return `
-        <div>
+        <div class="start-button-container">
             <button class="start-button">Start Timer</button>
         </div>
         `;
