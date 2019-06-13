@@ -1,14 +1,94 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu:400,500&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap');
 
+html {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
 h1 {
     font-family: 'Ubuntu', sans-serif;
 }
 
 body {
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    margin: 0%;
     font-family: 'Open Sans', sans-serif;
 }
 
 .hidden {
     display: none;
 }
+
+/*small: for phones tablets*/
+@media only screen and (min-width: 600px) {
+
+}
+
+/*large:laptops/small desktops*/
+@media only screen and (min-width: 992px) {
+
+}
+
+/*extra large: large desktops and screens*/
+@media only screen and (min-width: 1200px) {
+
+}
+
+
+
+/* JOIN AUCTION BUTTON */
+
+.btn a { 
+    color: #000;
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: bolder;
+    position: relative; 
+    z-index: 1;
+}
+
+.btn a:hover { 
+    color: #000;
+}
+
+.btn {
+    border-radius: 50px;
+    border: solid 6px #000;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+    font-weight: 700;
+    background-color: none;
+    padding: 15px 30px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+}
+
+.btn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 520%;
+    width: 140%;
+    background: #fff;
+    color: #000;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+  
+.btn:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+  

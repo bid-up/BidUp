@@ -39,7 +39,9 @@ class LotDetail extends Component {
             <div>
                 <h2>${lot.lotName}</h2>
                 <!-- product images from add lot component -->
-                <button><a href="./bidding.html?key=${lot.key}">Join this Auction Lot</a></button>
+                <div>
+                    <button class="btn"><a href="./bidding.html?key=${lot.key}">Join Auction</a></button>
+                </div>
             </div>
         `;
 

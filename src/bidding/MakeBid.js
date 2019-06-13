@@ -143,9 +143,9 @@ class MakeBid extends Component {
     renderTemplate() {
 
         return /*html*/ `
-            <div>
-                <button disabled class="bid-ten">10</button>
-                <button disabled class="bid-fifty">50</button>
+            <div class="bidding-buttons">
+                <button disabled class="bid-ten"><span>$10</span></button>
+                <button disabled class="bid-fifty"><span>$50</span></button>
             </div>
         `;
     }
