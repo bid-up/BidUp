@@ -2,11 +2,15 @@ header {
     display: flex;
     justify-content: space-between;
     /* background: linear-gradient(to bottom, #EAEAEA 0%, rgba(0,0,0,0) 100%); */
-    background-color: rgb(247, 231, 56);
+    /* background-color: rgb(247, 231, 56); */
     padding-top: 60px;
     padding-bottom: 60px;
+    background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
 }
 
+
+/* LOGO */
 #logo {
     height: 10%;
     max-height: 300px;
@@ -14,10 +18,12 @@ header {
     margin-left: 30px;
 }
 
+
+
 /* PROFILE */
 .profile-image {
     height: 50px;
-    margin-right: 5px;
+    margin-right: 8px;
     border-radius: 50%;
 }
 
@@ -25,6 +31,9 @@ header {
     display: flex;
     align-items: center;
     margin-right: 30px;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bolder;
 }
 
 .profile span {
@@ -37,6 +46,22 @@ header {
     justify-content: space-around;
 }
 
+.profile button {
+    margin-top: 5px;
+    background: none;
+    border: solid 2px #FFF;
+    border-radius: 50px;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.profile button:hover {
+    background: #fff;
+    color: #000;
+}
+
 
 
 /* NAV BAR */
@@ -45,6 +70,8 @@ header {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-weight: bolder;
+    font-size: 1.4em;
 }
 
 .nav-bar li {
@@ -63,12 +90,9 @@ header {
     font-size: 1.1em;
 }
 
-.nav-bar li a:hover:not(.active) {
+.nav-bar li a:hover {
     background-color: #111;
 }
 
-.active {
-    background-color: #4CAF50;
-}
 
 

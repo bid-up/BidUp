@@ -12,3 +12,58 @@ body {
 .hidden {
     display: none;
 }
+
+
+/* JOIN AUCTION BUTTON */
+
+.btn a { 
+    color: #000;
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: bolder;
+    position: relative; 
+    z-index: 1;
+}
+
+.btn a:hover { 
+    color: #000;
+}
+
+.btn {
+    border-radius: 50px;
+    border: solid 6px #000;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+    font-weight: 700;
+    background-color: none;
+    padding: 15px 30px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+}
+
+.btn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 520%;
+    width: 140%;
+    background: #fff;
+    color: #000;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+  
+.btn:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+  
