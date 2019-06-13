@@ -23,7 +23,7 @@ ul {
 }
 
 .product-detail {
-    width: 50%;
+    width: 20%;
     text-align: center;
 }
 
@@ -35,3 +35,7 @@ li {
     margin: 10px;
 }
 
+#seconds {
+    font-size: 3em;
+    color: rgb(225, 0, 102)
+}

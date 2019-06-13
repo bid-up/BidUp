@@ -10,12 +10,15 @@ class Bidder extends Component {
         const dom = this.renderDOM();
         const lot = this.props.lot;
         const productItemUl = dom.querySelector('.product-item');
+        const bidButtonsDOM = dom.querySelector('.bid-buttons');
+        const fundsInfoDOM = dom.querySelector('.funds-info');
+        const timerDisplayDOM = dom.querySelector('.timer');
 
         const timerDisplay = new TimerDisplay({ lot, time: '' });
-        dom.appendChild(timerDisplay.render());
+        timerDisplayDOM.appendChild(timerDisplay.render());
 
         const makeBid = new MakeBid({ lot });
-        dom.appendChild(makeBid.render());
+        bidButtonsDOM.appendChild(makeBid.render());
         
         const productItem = new ProductItem({ product: {} });
         productItemUl.appendChild(productItem.render());
@@ -24,7 +27,7 @@ class Bidder extends Component {
             balance: 500
         });
 
-        dom.appendChild(bidderBalance.render());
+        fundsInfoDOM.appendChild(bidderBalance.render());
 
         // update timer display from database
         activeLotsRef
@@ -85,9 +88,12 @@ class Bidder extends Component {
         return /*html*/`
             <div>
                 <h2>Bidder Page</h2>
-                <p>Highest Bidder: ${bidderDisplayName}</p>
-                <p>Highest Bid: ${highestBidDisplay}</p>
+                <div class="timer"></div>
+                <div class="bid-buttons"></div>
+                <div class="funds-info"></div>
                 <ul class="product-item"></ul>
+                <p>Highest Bid: ${highestBidDisplay}</p>
+                <p>Highest Bidder: ${bidderDisplayName}</p>
             </div>
             
         `;
