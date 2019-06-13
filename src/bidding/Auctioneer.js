@@ -10,15 +10,17 @@ class Auctioneer extends Component {
         const lot = this.props.lot;
 
         const productItemUl = dom.querySelector('.product-item');
+        const startButtonDOM = dom.querySelector('.start-btn');
+        const countdownDiplayDOM = dom.querySelector('.countdown-display');
 
         const productItem = new ProductItem({ product: {} });
         productItemUl.appendChild(productItem.render());
 
         const timer = new StartTimer({ lot: this.props.lot });
-        dom.appendChild(timer.render());
+        startButtonDOM.appendChild(timer.render());
 
         const timerDisplay = new TimerDisplay({ lot, time: '' });
-        dom.appendChild(timerDisplay.render());
+        countdownDiplayDOM.appendChild(timerDisplay.render());
 
         // Get display for timer display
         activeLotsRef
@@ -62,9 +64,11 @@ class Auctioneer extends Component {
         return /*html*/ `
             <div>
                 <h2>Auctioneer Page</h2>
-                <ul class="product-item"></ul>
+                <div class="start-btn"></div>
+                <div class="countdown-display"></div>
                 <p>Highest Bidder: ${bidderDisplayName}</p>
                 <p>Highest Bid: ${highestBidDisplay}</p>
+                <ul class="product-item"></ul>
             </div>
         `;
     }
