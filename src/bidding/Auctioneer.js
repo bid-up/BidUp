@@ -1,7 +1,7 @@
 import Component from '../Component.js';
 import StartTimer from './StartTimer.js';
 import TimerDisplay from './TimerDisplay.js';
-import { activeLotsRef } from '../services/firebase.js';
+import { activeLotsRef, productsByLotRef, productsRef } from '../services/firebase.js';
 import ProductItem from '../auction/ProductItem.js';
 
 class Auctioneer extends Component {
@@ -20,6 +20,7 @@ class Auctioneer extends Component {
         const timerDisplay = new TimerDisplay({ lot, time: '' });
         dom.appendChild(timerDisplay.render());
 
+        // Get display for timer display
         activeLotsRef
             .child(lot.key)
             .child('timeRemaining')
@@ -31,7 +32,23 @@ class Auctioneer extends Component {
                     timerDisplay.update({ time: val.time });
                 }
             });
-
+        
+        // Get product info for display
+        productsByLotRef
+            .child(lot.key)
+            .on('value', snapshot => {
+                const val = snapshot.val();
+                const products = val ? Object.values(val) : [];
+                const currentProduct = products[0];
+    
+                productsRef
+                    .child(currentProduct.key)
+                    .on('value', snapshot => {
+                        const val = snapshot.val();
+                        const product = val;
+                        productItem.update({ product });
+                    });
+            });
         return dom;
     }
     

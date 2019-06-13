@@ -32,6 +32,7 @@ class StartTimer extends Component {
                 });
         });
 
+        // hide timerButton if lot is active
         activeLotsRef
             .child(lot.key)
             .child('resetTimer')
@@ -41,8 +42,7 @@ class StartTimer extends Component {
                     timerButton.classList.add('hidden');
                 }
             });
-
-
+            
         return dom; 
     }
 

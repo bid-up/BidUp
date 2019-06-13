@@ -8,6 +8,7 @@ function resetTimer(lotKey) {
 
     const deadline = new Date(endDate).getTime();
 
+    // clear old timer if timer is reset
     clearInterval(interval);
 
     interval = setInterval(() => {
@@ -18,6 +19,8 @@ function resetTimer(lotKey) {
             .child(lotKey)
             .child('timeRemaining')
             .set({ time: seconds });
+
+        // When timer runs out
         if(timeRemaining < 0) {
             // get rid of timer
             clearInterval(interval);
