@@ -24,6 +24,9 @@ class Bidder extends Component {
                     timerDisplay.update({ time: '' });
                 } else {
                     timerDisplay.update({ time: val.time });
+                    if(val.time <= 0) {
+                        window.location = './results.html';
+                    }
                 }
             });
 

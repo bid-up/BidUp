@@ -9,7 +9,7 @@ class TimerDisplay extends Component {
 
     renderTemplate() {
         const time = this.props.time;
-        const timeDisplay = time > 0 ? time : 'Time is up!';
+        const timeDisplay = time > 0 ? time : '';
         return `
             <div>
                 <p id="seconds"> ${timeDisplay} </p>
