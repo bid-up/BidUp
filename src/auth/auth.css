@@ -1,0 +1,52 @@
+p {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: 'Bungee Inline', cursive;
+    font-size: 2em;
+}
+
+/* #firebaseui-auth-container {
+    border: solid 4px #000;
+} */
+
+/* text for buttons */
+.firebaseui-idp-text {
+    font-family: 'Bungee Inline', cursive;
+    text-align: center;
+}
+
+/* buttons themselves */
+.mdl-button {
+    border-radius: 50px;
+    border: solid 4px #000;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+    color: white;
+}
+
+/* cancel button */
+.mdl-button--primary.mdl-button--primary {
+    color: white;
+    margin-bottom: 1%;
+}
+
+/* next button */
+.mdl-button--raised.mdl-button--colored {
+    text-align: center;
+    background: white;
+    color: #D41872;
+}
+
+/* google button font */
+.firebaseui-idp-google > .firebaseui-idp-text {
+    color: white;
+}
