@@ -65,8 +65,6 @@ class Bidder extends Component {
 
         return /*html*/`
             <div>
-                <h2>name of item</h2>
-                <img src="assets/tomatos.jpg">
                 <p>Highest Bidder: ${bidderDisplayName}</p>
                 <p>Highest Bid: ${highestBidDisplay}</p>
                 <p>Balance: </p>
