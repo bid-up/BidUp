@@ -36,7 +36,7 @@ class LotDetail extends Component {
         const lot = this.props.lot;
 
         return /*html*/`
-            <div>
+            <div class="auction-detail">
                 <h2>${lot.lotName}</h2>
                 <!-- product images from add lot component -->
                 <div>
