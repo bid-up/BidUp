@@ -4,7 +4,7 @@ let interval;
 
 function resetTimer(lotKey) {
     const startDate = new Date().getTime();
-    const endDate = startDate + 6000;
+    const endDate = startDate + 11000;
 
     const deadline = new Date(endDate).getTime();
 
@@ -28,7 +28,7 @@ function resetTimer(lotKey) {
                 .remove();
             
             // redirect to results
-            window.location = './results.html';
+            window.location = `./results.html?key=${lotKey}`;
         }
     }, 1000);
 }
