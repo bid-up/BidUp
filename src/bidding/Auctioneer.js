@@ -2,11 +2,17 @@ import Component from '../Component.js';
 import StartTimer from './StartTimer.js';
 import TimerDisplay from './TimerDisplay.js';
 import { activeLotsRef } from '../services/firebase.js';
+import ProductItem from '../auction/ProductItem.js';
 
 class Auctioneer extends Component {
     render() {
         const dom = this.renderDOM();
         const lot = this.props.lot;
+
+        const productItemUl = dom.querySelector('.product-item');
+
+        const productItem = new ProductItem({ product: {} });
+        productItemUl.appendChild(productItem.render());
 
         const timer = new StartTimer({ lot: this.props.lot });
         dom.appendChild(timer.render());
@@ -38,9 +44,10 @@ class Auctioneer extends Component {
 
         return /*html*/ `
             <div>
-            Auctioneer
-            <p>Highest Bidder: ${bidderDisplayName}</p>
-            <p>Highest Bid: ${highestBidDisplay}</p>
+                <h2>Auctioneer Page</h2>
+                <ul class="product-item"></ul>
+                <p>Highest Bidder: ${bidderDisplayName}</p>
+                <p>Highest Bid: ${highestBidDisplay}</p>
             </div>
         `;
     }

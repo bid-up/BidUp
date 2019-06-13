@@ -9,6 +9,7 @@ class Bidder extends Component {
     render() {
         const dom = this.renderDOM();
         const lot = this.props.lot;
+        const productItemUl = dom.querySelector('.product-item');
 
         const timerDisplay = new TimerDisplay({ lot, time: '' });
         dom.appendChild(timerDisplay.render());
@@ -17,7 +18,7 @@ class Bidder extends Component {
         dom.appendChild(makeBid.render());
         
         const productItem = new ProductItem({ product: {} });
-        dom.prepend(productItem.render());
+        productItemUl.appendChild(productItem.render());
 
         const bidderBalance = new BidderBalance({ 
             balance: 500,
@@ -85,9 +86,10 @@ class Bidder extends Component {
 
         return /*html*/`
             <div>
+                <h2>Bidder Page</h2>
                 <p>Highest Bidder: ${bidderDisplayName}</p>
                 <p>Highest Bid: ${highestBidDisplay}</p>
-                <!-- Activity Feed List Component -->
+                <ul class="product-item"></ul>
             </div>
             
         `;

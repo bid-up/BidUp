@@ -91,25 +91,10 @@ class MakeBid extends Component {
                             } else {
                                 bidTen.disabled = true;
                                 bidFifty.disabled = true;
+                                alert('Stop spending money you do not have!');                            
                             }
                         });
                 });
-
-            // // get holding balance (for display)
-            // usersByLotRef
-            //     .child(lot.key)
-            //     .child(auth.currentUser.uid)
-            //     .child('holdingBalance')
-            //     .once('value', snapshot => {
-            //         const val = snapshot.val();
-                    
-            //         if(val.holdingBalance >= bidAmount) {
-            //             successfulBid(bidAmount);
-            //         } else {
-            //             bidTen.disabled = true;
-            //             bidFifty.disabled = true;
-            //         }
-            //     });
         });
 
         bidFifty.addEventListener('click', () => {
@@ -146,25 +131,10 @@ class MakeBid extends Component {
                             } else {
                                 bidTen.disabled = true;
                                 bidFifty.disabled = true;
+                                alert('Stop spending money you do not have!');
                             }
                         });
                 });
-
-            // // get holding balance (for display)
-            // usersByLotRef
-            //     .child(lot.key)
-            //     .child(auth.currentUser.uid)
-            //     .child('holdingBalance')
-            //     .once('value', snapshot => {
-            //         const val = snapshot.val();
-                    
-            //         if(val.holdingBalance >= bidAmount) {
-            //             successfulBid(bidAmount, val);
-            //         } else {
-            //             bidTen.disabled = true;
-            //             bidFifty.disabled = true;
-            //         }
-            //     });
         });
 
         return dom;
