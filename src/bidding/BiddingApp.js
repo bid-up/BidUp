@@ -62,7 +62,7 @@ class BiddingApp extends Component {
                                     .child(highestBidderUid)
                                     .on('value', snapshot => {
                                         const highestBidder = snapshot.val();
-                                        bidder.update({ highestBidder, highestBid });
+                                        bidder.update({ highestBidder, highestBid: highestBid });
                                     });
                             }
                         });

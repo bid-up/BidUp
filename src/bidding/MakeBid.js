@@ -23,12 +23,10 @@ class MakeBid extends Component {
                     value 
                         ? highestBid = value.highestBid 
                         : highestBid = 0;
-                    console.log('current highestBid', highestBid);
 
                     // set highest bidder (person who just bid)
                     // set highest bid 
                     const newHighestBid = highestBid + bidAmount;
-                    console.log('newHighestBId', newHighestBid);
                     activeLotsRef
                         .child(lot.key)
                         .child('resetTimer')

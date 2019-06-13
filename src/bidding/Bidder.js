@@ -20,8 +20,8 @@ class Bidder extends Component {
         dom.appendChild(productItem.render());
 
         const bidderBalance = new BidderBalance({ 
-            balance: '',
-            holdingBalance: ''
+            balance: 500,
+            holdingBalance: 0
         });
 
         dom.appendChild(bidderBalance.render());
@@ -43,7 +43,7 @@ class Bidder extends Component {
             });
 
         // holding balance = balance - highest bid
-        const highestBid = this.props.highestBid;
+        const highestBid = this.props.highestBid || 0;
 
         // gtting balance from db 
         usersByLotRef
