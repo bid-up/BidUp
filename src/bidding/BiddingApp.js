@@ -48,6 +48,7 @@ class BiddingApp extends Component {
                 } else {
                     const bidder = new Bidder({ lot });
                     main.appendChild(bidder.render());
+
                     // update highest bidder
                     activeLotsRef
                         .child(query.key)
@@ -57,7 +58,8 @@ class BiddingApp extends Component {
                             if(value) {
                                 const highestBidderUid = value.highestBidder || '';
                                 const highestBid = value.highestBid || '';
-    
+
+                                // Get more info on highestBidder
                                 usersRef
                                     .child(highestBidderUid)
                                     .on('value', snapshot => {
@@ -68,7 +70,6 @@ class BiddingApp extends Component {
                         });
                 }
             });
-
         return dom;
     }
 

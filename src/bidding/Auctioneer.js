@@ -20,6 +20,7 @@ class Auctioneer extends Component {
         const timerDisplay = new TimerDisplay({ lot, time: '' });
         dom.appendChild(timerDisplay.render());
 
+        // Get display for timer display
         activeLotsRef
             .child(lot.key)
             .child('timeRemaining')
@@ -32,6 +33,7 @@ class Auctioneer extends Component {
                 }
             });
         
+        // Get product info for display
         productsByLotRef
             .child(lot.key)
             .on('value', snapshot => {
@@ -47,7 +49,6 @@ class Auctioneer extends Component {
                         productItem.update({ product });
                     });
             });
-
         return dom;
     }
     
