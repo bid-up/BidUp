@@ -2,32 +2,49 @@ body {
     margin: 0;
 }
 
+.about-title {
+    text-align: center;
+}
+
 ul {
     list-style: none;
 }
 
-.lot-item {
+li {
+    height: auto;
+}
+.avatar {
+    border-radius: 100%;
+    height: 25vh;
+    width: 12vw;
+    margin-bottom: 5px;
+}
+
+
+
+.about-person {
     list-style: none;
     text-align: center;
     background-color: #FFF;
-    width: 250px;
+    width: 275px;
+    height: 400px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     padding: 20px 20px;
     margin: 6px 6px;
 }
 
-.lot-list-container {
+.about-container {
     display: flex;
-    flex-direction: column;
-    height: 100%;
+    flex-direction: row;
     flex-wrap: flex-wrap;
     justify-content: space-around;
     align-items: center;
+    height: 100%;
     margin: o auto;
 }
 
-.lot-list-container ul {
+.about-person ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -37,25 +54,6 @@ ul {
     margin: 0 auto;
 }
 
-.lot-list-container a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.4em;
-    font-family: 'Bungee Inline', cursive;
-    /* font-weight: bolder; */
-    display: flex;
-}
-
-.add-lot-form-button {
-    background: transparent;
-    border: none;
-}
-
-.add-lot-container {
-    display: flex;
-    justify-content: center;
-}
-
-.add-lot-container img {
-    width: 75px;
+.about-person li {
+    margin-right: 1px;
 }
