@@ -1,7 +1,9 @@
 import Component from '../Component.js';
 import MakeBid from './MakeBid.js';
 import TimerDisplay from './TimerDisplay.js';
-import { activeLotsRef } from '../services/firebase.js';
+import { activeLotsRef, productsByLotRef, productsRef } from '../services/firebase.js';
+import ProductItem from '../auction/ProductItem.js';
+
 
 class Bidder extends Component {
     render() {
@@ -13,6 +15,9 @@ class Bidder extends Component {
 
         const makeBid = new MakeBid({ lot });
         dom.appendChild(makeBid.render());
+        
+        const productItem = new ProductItem({ product: {} });
+        dom.appendChild(productItem.render());
 
         activeLotsRef
             .child(lot.key)
@@ -26,6 +31,22 @@ class Bidder extends Component {
                 }
             });
 
+        productsByLotRef
+            .child(lot.key)
+            .on('value', snapshot => {
+                const val = snapshot.val();
+                const products = val ? Object.values(val) : [];
+                const currentProduct = products[0];
+    
+                productsRef
+                    .child(currentProduct.key)
+                    .on('value', snapshot => {
+                        const val = snapshot.val();
+                        const product = val;
+                        productItem.update({ product });
+                    });
+            });
+
 
         return dom;
     }
@@ -33,8 +54,6 @@ class Bidder extends Component {
     renderTemplate() {
         return /*html*/`
             <div>
-                <h2>name of item</h2>
-                <img src="assets/tomatos.jpg">
                 <p>highest bid</p> <!--dynamic data -->
                 <p>Balance: </p>
                 <!-- Activity Feed List Component -->

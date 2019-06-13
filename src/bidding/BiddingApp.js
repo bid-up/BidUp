@@ -14,7 +14,7 @@ class BiddingApp extends Component {
         main.prepend(header.render());
 
         const query = QUERY.parse(window.location.search);
-        
+            
         lotsRef
             .child(query.key)
             .on('value', snapshot => {
