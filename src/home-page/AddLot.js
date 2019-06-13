@@ -5,8 +5,8 @@ class AddLot extends Component {
     render() {
         const dom = this.renderDOM();
         const form = dom.querySelector('form');
-        const lotNameInput = form.querySelector('input[name=lot-name]');
-
+        const productForm = dom.querySelector('.modal-products');
+        const modal = form.querySelector('#myModal');
         const addLotFormButton = dom.querySelector('.add-lot-form-button');
 
         addLotFormButton.addEventListener('click', () => {
@@ -16,7 +16,7 @@ class AddLot extends Component {
         });
 
         let currentLotRef = null;
-
+        
         //event listener for Lot
         form.addEventListener('submit', event => {
             event.preventDefault();
@@ -31,16 +31,6 @@ class AddLot extends Component {
                 owner: auth.currentUser.uid
             });
 
-            productForm.style.display = 'block';
-            lotForm.style.display = 'none';
-        });
-
-        const productForm = dom.querySelector('.modal-products');
-        const lotForm = dom.querySelector('.modal-content');
-        
-        productForm.addEventListener('submit', event => {
-            event.preventDefault();
-            const formData = new FormData(productForm);
             const productRef = productsRef.push();
             
             productRef.set({ 
@@ -49,7 +39,7 @@ class AddLot extends Component {
                 productName: formData.get('product-name'),
                 productURL: formData.get('product-image')
             });
-
+    
             productsByLotRef
                 .child(currentLotRef.key)
                 .child(productRef.key)
@@ -57,13 +47,12 @@ class AddLot extends Component {
                     key: productRef.key
                 });
 
-            productForm.reset();
-            lotNameInput.focus();
-            document.activeElement.blur();
-        
+            const modal = dom.querySelector('#myModal');
+            modal.style.display = 'none';
+
+            form.reset();
         });
-      
-        const modal = form.querySelector('#myModal');
+
 
         window.onclick = function(event) {
 
@@ -73,17 +62,12 @@ class AddLot extends Component {
         };
 
         const closeModalButton = dom.querySelector('.close-modal');
-
         closeModalButton.addEventListener('click', () => {
-            if(window.confirm('Are you done adding products?')) {
-                const modal = dom.querySelector('#myModal');
-                modal.style.display = 'none';
-            } else {
-                const modal = dom.querySelector('#myModal');
-                modal.style.display = 'block';
-            }
-
+            const modal = dom.querySelector('#myModal');
+            modal.style.display = 'none';
+            form.reset();
         });
+
 
         return dom;
     }
@@ -96,15 +80,12 @@ class AddLot extends Component {
                     <form class="modal-content">
                         <div class="modal-one">
                             <label>Lot Name: <input name="lot-name" required></label>
-                            <button class="add-lot-to-database">Add Lot</button>
                         </div>
-                    </form>
-                    <form class="modal-products">
                         <label>Product Name: <input name="product-name" required></label>
                         <label>Product Image URL: <input name="product-image" required></label>
-                        <button class="add-products-to-database">Add Products</button>
+                        <button class="add-products-to-database">Add</button>
                     </form>
-                    <button id="close-modal" class="close-modal">DONE</button>
+                    <button id="close-modal" class="close-modal">CLOSE</button>
                 </div>
                 <button class="add-lot-form-button"><img src="../../assets/add-button.png"></button>
         </div>
