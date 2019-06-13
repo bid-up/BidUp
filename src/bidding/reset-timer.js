@@ -28,7 +28,7 @@ function resetTimer(lotKey) {
                 .remove();
             
             // redirect to results
-            window.location = './results.html';
+            window.location = `./results.html?key=${lotKey}`;
         }
     }, 1000);
 }

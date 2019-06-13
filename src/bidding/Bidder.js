@@ -38,7 +38,7 @@ class Bidder extends Component {
                 } else {
                     timerDisplay.update({ time: val.time });
                     if(val.time <= 0) {
-                        window.location = './results.html';
+                        window.location = `./results.html?key=${lot.key}`;
                     }
                 }
             });
