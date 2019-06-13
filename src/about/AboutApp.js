@@ -21,7 +21,10 @@ class AboutApp extends Component {
                     <div class="about-container">
                             <div class="about-person">
                                 <h2>Carlos</h2>
-                                <img class="avatar" src="assets/about/carlos.png">
+                                <span class="avatar-on-hover">
+                                    <img class="avatar-front" src="assets/about/carlos.png">
+                                    <img class="avatar-back" src="assets/about/color-carlos.png">
+                                </span>
                                 <ul>
                                     <li><a href="https://github.com/carlosus"><img src="assets/about/github.png"></a></li>
                                     <li><a href="https://www.linkedin.com/in/carlosussantiago/"><img src="assets/about/linkedin.png"></a></li>
@@ -29,8 +32,11 @@ class AboutApp extends Component {
                                 </ul>
                             </div>
                             <div class="about-person">
-                            <h2>Leigh-Ann</h2>
-                            <img class="avatar" src="assets/about/leigh-ann.jpeg">
+                                <h2>Leigh-Ann</h2>
+                                <span class="avatar-on-hover">
+                                    <img class="avatar-front" src="assets/about/leigh-ann.jpeg">
+                                    <img class="avatar-back" src="assets/about/color-leigh-ann.jpeg">
+                                </span>
                                 <ul>
                                     <li><a href="https://github.com/lacrivella"><img src="assets/about/github.png"></a></li>
                                     <li><a href="https://www.linkedin.com/in/lacrivella/"><img src="assets/about/linkedin.png"></a></li>
@@ -38,8 +44,11 @@ class AboutApp extends Component {
                                 </ul>
                             </div>
                             <div class="about-person">
-                            <h2>Lili</h2>
-                            <img class="avatar" src="assets/about/lili.jpeg">
+                                <h2>Lili</h2>
+                                <span class="avatar-on-hover">
+                                    <img class="avatar-front" src="assets/about/lili.jpeg">
+                                    <img class="avatar-back" src="assets/about/color-lili.jpeg">
+                                </span>
                                 <ul>
                                     <li><a href="https://github.com/liliboxer"><img src="assets/about/github.png"></a></li>
                                     <li><a href="https://www.linkedin.com/in/lili-boxer/"><img src="assets/about/linkedin.png"></a></li>
@@ -48,7 +57,10 @@ class AboutApp extends Component {
                             </div>
                             <div class="about-person">
                             <h2>Susan</h2>
-                            <img class="avatar" src="assets/about/susan.jpeg">
+                                <span class="avatar-on-hover">
+                                    <img class="avatar-front" src="assets/about/susan.jpeg">
+                                    <img class="avatar-back" src="assets/about/color-susan.jpeg">
+                                </span>
                                 <ul>
                                     <li><a href="https://github.com/sepuckett86"><img src="assets/about/github.png"></a></li>
                                     <li><a href="https://www.linkedin.com/in/susanpuckett/"><img src="assets/about/linkedin.png"></a></li>
@@ -57,7 +69,10 @@ class AboutApp extends Component {
                             </div>
                             <div class="about-person">
                             <h2>Wes</h2>
-                            <img class="avatar" src="assets/about/wes.jpeg">
+                                <span class="avatar-on-hover">
+                                    <img class="avatar-front" src="assets/about/wes.jpeg">
+                                    <img class="avatar-back" src="assets/about/color-wes.jpeg">
+                                </span>
                                 <ul>
                                     <li><a href="https://github.com/codingclueless"><img src="assets/about/github.png"></a></li>
                                     <li><a href="https://www.linkedin.com/in/wes-griffin-319b7a184/"><img src="assets/about/linkedin.png"></a></li>
