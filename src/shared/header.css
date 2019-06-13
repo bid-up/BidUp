@@ -11,13 +11,16 @@ header {
 
 
 /* LOGO */
-#logo {
-    height: 10%;
-    max-height: 300px;
-    /* height: auto; */
-    margin-left: 30px;
+.logo {
+    height: auto;
+    margin-left: 3%;
+    background-size: contain;
 }
 
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
 
 
 /* PROFILE */
@@ -30,7 +33,7 @@ header {
 .profile {
     display: flex;
     align-items: center;
-    margin-right: 30px;
+    margin-right: 3%;
     color: #fff;
     font-size: 1.2em;
     font-weight: bolder;
@@ -66,6 +69,7 @@ header {
 
 /* NAV BAR */
 .nav-bar {
+    display: flex;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -94,5 +98,46 @@ header {
     background-color: #111;
 }
 
+.nav-profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
 
+.nav-profile > div {
+    padding: 3vw;
+    text-align: center;
+}
 
+/*small: for phones tablets*/
+@media only screen and (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+
+    header > div {
+        padding: 2vw;
+    }
+
+    /* .nav-bar {
+        padding-right:20vw;
+    } */
+}
+
+/*large:laptops/small desktops*/
+@media only screen and (min-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between;
+ 
+    }
+}
+
+/* extra large: large desktops and screens
+@media only screen and (min-width: 1200px) {
+} */

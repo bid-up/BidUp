@@ -1,17 +1,42 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu:400,500&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Bungee+Inline&display=swap');
 
+html {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
 h1 {
     font-family: 'Ubuntu', sans-serif;
 }
 
 body {
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    margin: 0%;
     font-family: 'Open Sans', sans-serif;
 }
 
 .hidden {
     display: none;
 }
+
+/*small: for phones tablets*/
+@media only screen and (min-width: 600px) {
+
+}
+
+/*large:laptops/small desktops*/
+@media only screen and (min-width: 992px) {
+
+}
+
+/*extra large: large desktops and screens*/
+@media only screen and (min-width: 1200px) {
+
+}
+
 
 
 /* JOIN AUCTION BUTTON */
