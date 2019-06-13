@@ -11,26 +11,6 @@ class MakeBid extends Component {
         
         // this happens when a user has enough money to bid
         function successfulBid(bidAmount) {
-            // decrease holding balance by bid amount
-            // get holding balance
-            usersByLotRef
-                .child(lot.key)
-                .child(auth.currentUser.uid)
-                .child('holdingBalance')
-                .once('value', snapshot => {
-                    const val = snapshot.val();
-                    const holdingBalance = val.holdingBalance;
-
-                    // update holding balance 
-                    const updatedHoldingBalance = holdingBalance - bidAmount;
-                    usersByLotRef
-                        .child(lot.key)
-                        .child(auth.currentUser.uid)
-                        .child('holdingBalance')
-                        .set({
-                            holdingBalance: updatedHoldingBalance
-                        });
-                });
 
             // set highest bidder and increase highest bid in db
             // get highest bid

@@ -1,9 +1,9 @@
 import Component from '../Component.js';
 import MakeBid from './MakeBid.js';
 import TimerDisplay from './TimerDisplay.js';
-import { activeLotsRef, productsByLotRef, productsRef } from '../services/firebase.js';
+import { auth, activeLotsRef, productsByLotRef, productsRef, usersByLotRef } from '../services/firebase.js';
 import ProductItem from '../auction/ProductItem.js';
-
+import BidderBalance from './BidderBalance.js';
 
 class Bidder extends Component {
     render() {
@@ -18,6 +18,13 @@ class Bidder extends Component {
         
         const productItem = new ProductItem({ product: {} });
         dom.appendChild(productItem.render());
+
+        const bidderBalance = new BidderBalance({ 
+            balance: '',
+            holdingBalance: ''
+        });
+
+        dom.appendChild(bidderBalance.render());
 
         // update timer display from database
         activeLotsRef
@@ -35,6 +42,19 @@ class Bidder extends Component {
                 }
             });
 
+        // holding balance = balance - highest bid
+        const highestBid = this.props.highestBid;
+
+        // gtting balance from db 
+        usersByLotRef
+            .child(lot.key)
+            .child(auth.currentUser.uid)
+            .child('balance')
+            .on('value', snapshot => {
+                const val = snapshot.val();
+                const balance = val.balance;
+                bidderBalance.update({ balance, holdingBalance: balance - highestBid });
+            });
 
         productsByLotRef
             .child(lot.key)
@@ -69,7 +89,6 @@ class Bidder extends Component {
                 <img src="assets/tomatos.jpg">
                 <p>Highest Bidder: ${bidderDisplayName}</p>
                 <p>Highest Bid: ${highestBidDisplay}</p>
-                <p>Balance: </p>
                 <!-- Activity Feed List Component -->
             </div>
             
