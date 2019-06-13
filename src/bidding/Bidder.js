@@ -9,7 +9,6 @@ class Bidder extends Component {
     render() {
         const dom = this.renderDOM();
         const lot = this.props.lot;
-        console.log('here');
 
         const timerDisplay = new TimerDisplay({ lot, time: '' });
         dom.appendChild(timerDisplay.render());
@@ -38,14 +37,13 @@ class Bidder extends Component {
                 const val = snapshot.val();
                 const products = val ? Object.values(val) : [];
                 const currentProduct = products[0];
-                console.log(currentProduct, 'current');
+    
                 productsRef
                     .child(currentProduct.key)
                     .on('value', snapshot => {
                         const val = snapshot.val();
                         const product = val;
                         productItem.update({ product });
-                        console.log(product, 'product');
                     });
             });
 

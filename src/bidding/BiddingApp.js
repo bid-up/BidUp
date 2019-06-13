@@ -3,7 +3,7 @@ import Header from '../shared/Header.js';
 import Bidder from './Bidder.js';
 import Auctioneer from './Auctioneer.js';
 import QUERY from '../utils/QUERY.js';
-import { auth, lotsRef, productsRef } from '../services/firebase.js';
+import { auth, lotsRef } from '../services/firebase.js';
 
 class BiddingApp extends Component {
     render() {
