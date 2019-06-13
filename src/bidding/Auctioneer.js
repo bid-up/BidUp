@@ -19,7 +19,7 @@ class Auctioneer extends Component {
             .child('timeRemaining')
             .on('value', snapsnot => {
                 const val = snapsnot.val();
-                if(!val.time) {
+                if(!val) {
                     timerDisplay.update({ time: '' });
                 } else {
                     timerDisplay.update({ time: val.time });
@@ -30,8 +30,18 @@ class Auctioneer extends Component {
     }
     
     renderTemplate() {
+        const highestBidder = this.props.highestBidder;
+        const highestBid = this.props.highestBid;
+
+        const bidderDisplayName = highestBidder ? highestBidder.displayName : 'no bidder';
+        const highestBidDisplay = highestBid ? highestBid : 0;
+
         return /*html*/ `
-            <div>Auctioneer</div>
+            <div>
+            Auctioneer
+            <p>Highest Bidder: ${bidderDisplayName}</p>
+            <p>Highest Bid: ${highestBidDisplay}</p>
+            </div>
         `;
     }
 }

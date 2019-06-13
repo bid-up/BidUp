@@ -1,4 +1,4 @@
-import { activeLotsRef } from '../services/firebase.js';
+import { activeLotsRef, lotsRef } from '../services/firebase.js';
 
 let interval;
 
@@ -19,7 +19,16 @@ function resetTimer(lotKey) {
             .child('timeRemaining')
             .set({ time: seconds });
         if(timeRemaining < 0) {
+            // get rid of timer
             clearInterval(interval);
+
+            // delete lot but not active lot
+            lotsRef
+                .child(lotKey)
+                .remove();
+            
+            // redirect to results
+            window.location = './results.html';
         }
     }, 1000);
 }

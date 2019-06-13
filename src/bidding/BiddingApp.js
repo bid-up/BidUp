@@ -14,8 +14,8 @@ class BiddingApp extends Component {
         main.prepend(header.render());
 
         const query = QUERY.parse(window.location.search);
-            
-      // render auctioneer or bidder depending on lot creator
+        
+        // render auctioneer or bidder depending on lot creator
         lotsRef
             .child(query.key)
             .on('value', snapshot => {
@@ -34,7 +34,7 @@ class BiddingApp extends Component {
                             if(value) {
                                 const highestBidderUid = value.highestBidder;
                                 const highestBid = value.highestBid;
-
+    
                                 // Get more info on highestBidder
                                 usersRef
                                     .child(highestBidderUid)
@@ -57,7 +57,7 @@ class BiddingApp extends Component {
                             if(value) {
                                 const highestBidderUid = value.highestBidder || '';
                                 const highestBid = value.highestBid || '';
-
+    
                                 usersRef
                                     .child(highestBidderUid)
                                     .on('value', snapshot => {

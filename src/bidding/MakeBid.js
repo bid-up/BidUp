@@ -10,13 +10,13 @@ class MakeBid extends Component {
         const lot = this.props.lot;
         
         function successfulBid(bidAmount, val) {
-            // update reset timer in db
-            activeLotsRef
-                .child(lot.key)
-                .child('resetTimer')
-                .set({
-                    reset: auth.currentUser.uid // change to UID
-                });
+            // // update reset timer in db
+            // activeLotsRef
+            //     .child(lot.key)
+            //     .child('resetTimer')
+            //     .set({
+            //         highestBidder: auth.currentUser.uid
+            //     });
 
             // change holding balance 
             const updatedHoldingBalance = val.holdingBalance - bidAmount;
@@ -30,10 +30,9 @@ class MakeBid extends Component {
 
             // get highest bid
             let highestBid;
-            usersByLotRef
+            activeLotsRef
                 .child(lot.key)
-                .child(auth.currentUser.uid)
-                .child('highestBid')
+                .child('resetTimer')
                 .once('value', snapshot => {
                     const value = snapshot.val();
                     value 
@@ -48,21 +47,36 @@ class MakeBid extends Component {
                         .set({
                             highestBid: highestBid + bidAmount
                         });
+                    activeLotsRef
+                        .child(lot.key)
+                        .child('resetTimer')
+                        .set({
+                            highestBidder: auth.currentUser.uid,
+                            highestBid: highestBid + bidAmount
+                        });
                 });
         }
 
+        
+
+        // Disable and enable buttons to add delay after click
         activeLotsRef
             .child(lot.key)
             .child('resetTimer')
             .on('value', snapshot => {
                 const value = snapshot.val();
                 if(value) {
-                    bidTen.disabled = true;
-                    bidFifty.disabled = true;
-                    setTimeout(() => {
-                        bidTen.disabled = false;
-                        bidFifty.disabled = false;
-                    }, 1000);
+                    if(value.highestBidder !== auth.currentUser.uid) {
+                        bidTen.disabled = true;
+                        bidFifty.disabled = true;
+                        setTimeout(() => {
+                            bidTen.disabled = false;
+                            bidFifty.disabled = false;
+                        }, 1000);
+                    } else {
+                        bidTen.disabled = true;
+                        bidFifty.disabled = true;
+                    }
                 }
             });
 
@@ -97,7 +111,9 @@ class MakeBid extends Component {
                     // check if user has enough money to bid
                     if(val.holdingBalance >= bidAmount) {
                         successfulBid(bidAmount, val);
-                    }    
+                    } else {
+                        alert('Stop spending money you do not have!');
+                    }
                 });
         });
 
