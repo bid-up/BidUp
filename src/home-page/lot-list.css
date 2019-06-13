@@ -33,6 +33,15 @@ body {
     margin: 0 auto;
 }
 
+.lot-list-container a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.4em;
+    font-family: 'Bungee Inline', cursive;
+    /* font-weight: bolder; */
+    display: flex;
+}
+
 .add-lot-form-button {
     background: transparent;
     border: none;

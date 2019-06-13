@@ -1,7 +1,9 @@
 import Component from '../Component.js';
 import MakeBid from './MakeBid.js';
 import TimerDisplay from './TimerDisplay.js';
-import { activeLotsRef } from '../services/firebase.js';
+import { activeLotsRef, productsByLotRef, productsRef } from '../services/firebase.js';
+import ProductItem from '../auction/ProductItem.js';
+
 
 class Bidder extends Component {
     render() {
@@ -13,6 +15,9 @@ class Bidder extends Component {
 
         const makeBid = new MakeBid({ lot });
         dom.appendChild(makeBid.render());
+        
+        const productItem = new ProductItem({ product: {} });
+        dom.appendChild(productItem.render());
 
         // update timer display from database
         activeLotsRef
@@ -29,6 +34,24 @@ class Bidder extends Component {
                     }
                 }
             });
+
+
+        productsByLotRef
+            .child(lot.key)
+            .on('value', snapshot => {
+                const val = snapshot.val();
+                const products = val ? Object.values(val) : [];
+                const currentProduct = products[0];
+    
+                productsRef
+                    .child(currentProduct.key)
+                    .on('value', snapshot => {
+                        const val = snapshot.val();
+                        const product = val;
+                        productItem.update({ product });
+                    });
+            });
+
 
         return dom;
     }
