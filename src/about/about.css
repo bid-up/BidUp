@@ -4,13 +4,15 @@
 
 .social-images {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     border: 1px solid white;
     flex-wrap: wrap;
 }
+
 .social-images img {
     width: 30%;
 }
-
 
 #social-link {
     border: 1px solid white;
@@ -18,46 +20,22 @@
     height: 50;
 }
 
-/*code that transition from B&W to color, but messes up layout
-/* .avatar-on-hover {
-    position: relative;	
-}
-.avatar-on-hover img {
-    position: absolute;
-    top:0;
-    left:0;
-	overflow: hidden;
-    border-radius: 100%;
-    height: 25vh;
-    width: 12vw;
-    margin-bottom: 5px;
-}
-
-.avatar-on-hover .avatar-front {
-    z-index: 9999;
-    transition: opacity .7s linear;
-    cursor: pointer;
-}
-
-.avatar-on-hover:hover > .avatar-front {
-    opacity: 0;
-} */
-
 .avatar-on-hover img {
     border-radius: 100%;
     width: 80%;
     margin-bottom: 2%;
 }
 
-
 .about-person {
     list-style: none;
     text-align: center;
     display: flex;
+    flex-wrap: flex-wrap;
     flex-direction: column;
+    justify-content: space-around;
     background-color: #FFF;
-    width: 150px;
-    height: 300px;
+    width: 200px;
+    height: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     padding: 20px 20px;
@@ -84,11 +62,10 @@
     margin: 0 auto;
 }
 
-
-
 /* mobile style */
 @media only screen and (max-width: 400px) {
     .about-container {
         display: flex;
         flex-direction: row;
+    }
 }

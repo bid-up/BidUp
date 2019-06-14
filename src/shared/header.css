@@ -1,12 +1,10 @@
 header {
     display: flex;
     justify-content: space-between;
-    /* background: linear-gradient(to bottom, #EAEAEA 0%, rgba(0,0,0,0) 100%); */
-    /* background-color: rgb(247, 231, 56); */
     padding-top: 5vh;
     padding-bottom: 5vh;
     background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+    box-shadow: 0 15px 15px rgba(0,0,0,0.20);
     align-items: center;
 }
 
@@ -19,7 +17,7 @@ header {
 }
 
 .logo img {
-    max-width: 80%;
+    max-width: 70%;
     height: auto;
 }
 
@@ -38,7 +36,7 @@ header {
     color: #fff;
     font-size: 1em;
     font-weight: bolder;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Unica One', cursive;
 }
 
 .profile span {
@@ -97,7 +95,7 @@ header {
     text-decoration: none;
     padding: 0 10px;
     font-size: 1.4em;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Unica One', cursive;
 }
 
 .nav-bar li a:hover {

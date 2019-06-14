@@ -61,22 +61,30 @@ class AddLot extends Component {
     }
     renderTemplate() {
         return /*html*/`
-        <div class="add-lot-container">
-            <h2>LOTS</h2>
-            <div><button class="add-button sub-button"></button></div>
-                <div id="myModal" class="modal">
-                    <form class="modal-content">
-                        <div class="modal-one">
-                            <label>Lot Name: <input name="lot-name" required></label>
-                        </div>
+        <div class="modal-container">
+            <h2>AUCTION LOTS</h2>
+            <div>
+                <button class="add-button"></button>
+            </div>
+            <div id="myModal" class="modal overlay">
+                <form class="modal-content">
+                    <div class="modal-one">
+                        <label>Lot Name: <input name="lot-name" required></label>
+                    </div>
+                    <div>
                         <label>Product Name: <input name="product-name" required></label>
+                    </div>
+                    <div>
                         <label>Product Image URL: <input name="product-image" required></label>
-                        <button class="add-products-to-database">Add</button>
-                    </form>
-                    <button id="close-modal" class="close-modal">CLOSE</button>
-                </div>
+                    </div>
+                    <button class="add-products-to-database">ADD</button>
+                </form>
+                <a id="close-modal" class="close-modal">&times;</a>
+            </div>
         </div>
         `;
+
+        
             
     }
 }
