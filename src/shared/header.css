@@ -38,7 +38,7 @@ header {
     color: #fff;
     font-size: 1em;
     font-weight: bolder;
-    font-family: 'Megrim', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .profile span {
@@ -97,7 +97,7 @@ header {
     text-decoration: none;
     padding: 0 10px;
     font-size: 1.4em;
-    font-family: 'Megrim', cursive;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .nav-bar li a:hover {
