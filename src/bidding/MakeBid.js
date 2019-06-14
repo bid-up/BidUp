@@ -128,6 +128,7 @@ class MakeBid extends Component {
                                 successfulBid(bidAmount, highestBid);
                             } else if(highestBid + 10 <= balance) {
                                 bidFifty.disabled = true;
+                                alert('Stop spending money you do not have!');
                             } else {
                                 bidTen.disabled = true;
                                 bidFifty.disabled = true;
