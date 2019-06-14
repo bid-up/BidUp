@@ -22,7 +22,7 @@ class ProductList extends Component {
 
     renderTemplate() {
         return /*html*/`
-            <ul></ul>
+            <ul class="product-list-container"></ul>
         `;
 
     }

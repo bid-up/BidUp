@@ -17,7 +17,7 @@ class AboutApp extends Component {
         return /*html*/ `
             <div>
                 <main>
-                    <h1 class="about-title">About The Team</h1>
+                    <h1 class="about-title">MEET THE TEAM</h1>
                     <div class="about-container">
                             <div class="about-person">
                                 <h2>Carlos</h2>

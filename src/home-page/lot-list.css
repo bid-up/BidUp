@@ -1,148 +1,151 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 .lot-item {
-    list-style: none;
-    text-align: center;
-    background-color: #FFF;
-    width: 250px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
-    padding: 20px 20px;
-    margin: 6px 6px;
+  list-style: none;
+  text-align: center;
+  align-items: center;
+  background-color: #FFF;
+  width: 200px;
+  height: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  padding: 20px 20px;
+  margin: 6px 6px;
+}
+
+.lot-item:hover {
+  box-shadow: 0 6px 10px 0 rgba(255, 0, 132, 0.4), 0 8px 20px 0 rgba(255, 0, 132, 0.4);
 }
 
 .lot-list-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    flex-wrap: flex-wrap;
-    justify-content: space-around;
-    align-items: center;
-    margin: o auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-wrap: flex-wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .lot-list-container ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 60vh;
-    overflow: auto;
-    padding: 0;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 60vh;
+  overflow: auto;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .lot-list-container li {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2em;
 }
 
 .lot-list-container a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.4em;
-    font-family: 'Unica One', cursive;
-    font-weight: bolder;
-    display: flex;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.4em;
+  font-family: 'Unica One', cursive;
+  font-weight: bolder;
+  display: flex;
 }
 
-.add-lot-container {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 10%;
-    padding-right: 12%;
-    align-items: center;
+.modal-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 12%;
+  align-items: center;
 }
 
-.add-lot-container h2 {
-    font-size: 2.6em;
-    font-family: 'Unica One', cursive;
+.modal-container h2 {
+  font-size: 2.6em;
+  font-family: 'Unica One', cursive;
 }
 
 
 /* ADD BUTTON */
 
 .add-button {
-  display: flex;
-  border: none;
-  align-items: center;
-  text-align: center;
-  line-height: 30px;
-  font-size: 2em;
-  font-weight: bolder;
-  color: rgba(255,255,255,1);
-  background-color:#ff4081;
-  border-radius: 50%;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.20);
-  /* overflow: visible; */
-  -webkit-transition: transform .4s cubic-bezier(.58,-0.37,.45,1.46),
-    color 0s ease .4s,font-size .2s;
-  -moz-transition: transform .4s cubic-bezier(.58,-0.37,.45,1.46),
-    color 0s ease .4s,font-size .2s;
-  transition: transform .4s cubic-bezier(.58,-0.37,.45,1.46),
-    color 0s ease .4s,font-size .2s;
+display: flex;
+border: none;
+align-items: center;
+text-align: center;
+font-size: 2em;
+font-weight: bolder;
+color: rgba(255,255,255,1);
+background-color:#ff4081;
+border-radius: 50%;
+box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+/* overflow: visible; */
+-webkit-transition: transform .4s cubic-bezier(.58,-0.37,.45,1.46),
+  color 0s ease .4s,font-size .2s;
+-moz-transition: transform .4s cubic-bezier(.58,-0.37,.45,1.46),
+  color 0s ease .4s,font-size .2s;
+transition: transform .4s cubic-bezier(.58,-0.37,.45,1.46),
+  color 0s ease .4s,font-size .2s;
+/* position: absolute; */
+display: inline-block;
+color: #fff;
+width: 50px;
+height: 50px;
+line-height: 0px;
+font-family: "FontAwesome";
+font-size: 50px;
+border-radius: .2s ease .2s;
 }
 
 .add-button:before {
-  position: relative;  
-  z-index: 100; 
-  content:"+";
+position: relative;  
+z-index: 100; 
+content:"+";
 }
 
 .add-button:hover {
-  color: rgba(255,255,255,0);
-  transform: rotate(45deg);
-}
-
-.sub-button {
-  /* position: absolute; */
-  display: inline-block;
-  color: rgba(255,255,255,0);
-  width: 50px;
-  height: 50px;
-  line-height: 30px;
-  font-family: "FontAwesome";
-  font-size: 50px;
-  border-radius: .2s ease .2s;
+color: rgba(255,255,255,0);
+transform: rotate(45deg);
 }
 
 .add-button:hover {
-  width: 70px;
-  height: 70px;
-  transform: rotate(-45deg);
-  color: rgba(255,255,255,1);
-  -webkit-transition: top .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    left .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    bottom .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    right .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    width .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    height .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    color .3s ease .8s,
-    transform .3s ease .8s,
-    border-radius .4s  ease .6s;
-   -moz-transition: top .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    left .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    bottom .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    right .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    width .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    height .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    color .3s ease .8s,
-    transform .3s ease .8s,
-    border-radius .4s  ease .6s;
-   transition: top .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    left .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    bottom .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    right .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    width .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    height .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
-    color .3s ease .8s,
-    transform .3s ease .8s,
-    border-radius .4s  ease .6s;
+width: 70px;
+height: 70px;
+transform: rotate(-45deg);
+color: rgba(255,255,255,1);
+-webkit-transition: top .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  left .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  bottom .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  right .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  width .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  height .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  color .3s ease .8s,
+  transform .3s ease .8s,
+  border-radius .4s  ease .6s;
+ -moz-transition: top .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  left .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  bottom .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  right .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  width .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  height .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  color .3s ease .8s,
+  transform .3s ease .8s,
+  border-radius .4s  ease .6s;
+ transition: top .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  left .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  bottom .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  right .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  width .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  height .4s cubic-bezier(.58,-0.37,.45,1.46) .4s,
+  color .3s ease .8s,
+  transform .3s ease .8s,
+  border-radius .4s  ease .6s;
 }
 
 button {
-  outline: none; 
+outline: none; 
 }
 
 
