@@ -1,3 +1,8 @@
+.bidding-buttons {
+    display: flex;
+    justify-content: center;
+}
+
 .bid-ten span { 
     color: #000;
     text-decoration: none;
@@ -20,7 +25,7 @@
     font-weight: 700;
     background-color: none;
     padding: 15px;
-    margin: 0 auto;
+    margin: 0 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.20);
 }
 
@@ -65,8 +70,9 @@
     font-weight: 700;
     background-color: none;
     padding: 15px;
-    margin: 0 auto;
+    margin: 0 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+    
 }
 
 .bid-fifty:after {
@@ -105,23 +111,13 @@
     margin: 0 auto;
     box-shadow: 0 5px 15px rgba(0,0,0,0.20);
 }
-
-.start-button-container button:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 520%;
-    width: 140%;
-    background: #fff;
-    color: #000;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
-    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-    transform: translateX(-98%) translateY(-25%) rotate(45deg);
-}
   
 .start-button-container button:hover:after {
     -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
     transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+
+.bid-ten:disabled, .bid-fifty:disabled {
+    background-color: rgb(165, 165, 165);
 }

@@ -14,6 +14,12 @@ h2 {
     font-size: 2em;
 }
 
+.auction-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .auction-detail ul {
     display: flex;
     align-items: center;
@@ -30,7 +36,7 @@ li {
     width: 100%;
 }
 
-.product-list {
+.product-list, .product-item {
     display: flex;
     align-items: center;
     text-align: center;
@@ -43,6 +49,15 @@ li {
     background-color: #FFF;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 6px 6px;
+}
+
+.product-detail {
+    list-style: none;
+}
+
+.product-item {
+    margin: 0 auto;
+    padding: 0;
 }
 
 #seconds {
@@ -59,7 +74,7 @@ li {
 }
 
 .btn a { 
-    color: #000;
+    color: #fff;
     text-decoration: none;
     font-size: 1.5em;
     font-weight: bolder;
@@ -74,7 +89,7 @@ li {
 .btn {
     border-radius: 50px;
     border: solid 6px #000;
-    display: block;
+    /* display: block; */
     text-align: center;
     cursor: pointer;
     text-transform: uppercase;
@@ -87,30 +102,17 @@ li {
     padding: 15px 20px;
     margin: 0 auto;
     box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: #fff;
 }
 
-.btn:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 460%;
-    width: 85%;
-    background: #fff;
-    color: #000;
-    -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
-    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+.btn:hover {
+    background: rgb(165, 165, 165);
+    color: white;
 }
   
 .btn:hover:after {
     -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
     transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
-
-
-
-
-  
-

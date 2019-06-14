@@ -1,18 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Unica+One&display=swap');
+
 p {
     text-align: center;
     margin-top: 5%;
     margin-bottom: 5%;
-    font-family: 'Bungee Inline', cursive;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 2em;
 }
 
-/* #firebaseui-auth-container {
-    border: solid 4px #000;
-} */
-
 /* text for buttons */
 .firebaseui-idp-text {
-    font-family: 'Bungee Inline', cursive;
+    font-family: 'Ubuntu', sans-serif;
     text-align: center;
 }
 
@@ -44,6 +42,10 @@ p {
     text-align: center;
     background: white;
     color: #D41872;
+}
+
+.mdl-button--raised.mdl-button--colored:hover {
+    background-color: white;
 }
 
 /* google button font */

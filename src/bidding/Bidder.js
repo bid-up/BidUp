@@ -89,11 +89,11 @@ class Bidder extends Component {
             <div>
                 <h2>Bidder Page</h2>
                 <div class="timer"></div>
-                <p>Highest Bid: ${highestBidDisplay}</p>
+                <h3>Highest Bidder: ${bidderDisplayName}</h3>
+                <h3>Highest Bid: ${highestBidDisplay}</h3>
                 <div class="bid-buttons"></div>
                 <div class="funds-info"></div>
                 <ul class="product-item"></ul>
-                <p>Highest Bidder: ${bidderDisplayName}</p>
             </div>
             
         `;
