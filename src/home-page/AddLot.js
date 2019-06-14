@@ -12,34 +12,36 @@ class AddLot extends Component {
             modal.style.display = 'block';
             productForm.style.display = 'none';
         });
-        let currentLotRef = null;
         
         //event listener for Lot
         form.addEventListener('submit', event => {
             event.preventDefault();
             const formData = new FormData(form);
+
             const lotRef = lotsRef.push();
-            currentLotRef = lotRef;
+
             lotRef.set({ 
                 key: lotRef.key,
                 lotName: formData.get('lot-name'),
                 owner: auth.currentUser.uid
             });
+
             const productRef = productsRef.push();
             
             productRef.set({ 
-                lotKey: currentLotRef.key, //might not need
+                lotKey: lotRef.key, //might not need
                 key: productRef.key,
                 productName: formData.get('product-name'),
                 productURL: formData.get('product-image')
             });
     
             productsByLotRef
-                .child(currentLotRef.key)
+                .child(lotRef.key)
                 .child(productRef.key)
                 .set({
                     key: productRef.key
                 });
+                
             const modal = dom.querySelector('#myModal');
             modal.style.display = 'none';
             form.reset();
