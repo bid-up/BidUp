@@ -26,7 +26,7 @@ class Header extends Component {
         return /*html*/`
             <header>
                 <div class="logo">
-                    <img src="../../assets/bidup-logo3.png">
+                    <a href="./"><img src="../../assets/bidup-logo3.png"></a>
                 </div>
                 <div class="nav-profile"></div>
             </header>
