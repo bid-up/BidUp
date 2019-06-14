@@ -1,18 +1,23 @@
-body {
-    margin: 0;
-}
-
 .about-title {
     text-align: center;
 }
 
-ul {
-    list-style: none;
+.social-images {
+    display: flex;
+    border: 1px solid white;
+    flex-wrap: wrap;
+}
+.social-images img {
+    width: 30%;
 }
 
-li {
-    height: auto;
+
+#social-link {
+    border: 1px solid white;
+    width: 50%;
+    height: 50;
 }
+
 /*code that transition from B&W to color, but messes up layout
 /* .avatar-on-hover {
     position: relative;	
@@ -40,9 +45,8 @@ li {
 
 .avatar-on-hover img {
     border-radius: 100%;
-    height: 25vh;
-    width: 12vw;
-    margin-bottom: 5px;
+    width: 80%;
+    margin-bottom: 2%;
 }
 
 
@@ -52,41 +56,39 @@ li {
     display: flex;
     flex-direction: column;
     background-color: #FFF;
-    width: 275px;
-    height: 400px;
+    width: 150px;
+    height: 300px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     padding: 20px 20px;
-    margin: 6px 6px;
+    margin: 3px 3px;
 }
 
 .about-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: flex-wrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     height: 100%;
-    margin: o auto;
+    margin: 0 auto;
 }
 
-.about-person ul {
+.about-person div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 60vh;
-    /* overflow: auto; */
+    height: 60%;
+    overflow: auto;
     padding: 0;
     margin: 0 auto;
 }
 
-.about-person li {
-    margin-right: 1px;
-}
+
 
 /* mobile style */
 @media only screen and (max-width: 400px) {
     .about-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
 }
