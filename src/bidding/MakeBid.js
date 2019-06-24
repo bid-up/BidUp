@@ -14,15 +14,15 @@ class MakeBid extends Component {
 
             // set highest bidder and increase highest bid in db
             // get highest bid
-            let highestBid;
+            
+            // This is too broadly scoped, move into value handler
+            // let highestBid;
             activeLotsRef
                 .child(lot.key)
                 .child('resetTimer')
                 .once('value', snapshot => {
                     const value = snapshot.val();
-                    value 
-                        ? highestBid = value.highestBid 
-                        : highestBid = 0;
+                    const highestBid = value ? value.highestBid : 0;
 
                     // set highest bidder (person who just bid)
                     // set highest bid 
@@ -97,8 +97,13 @@ class MakeBid extends Component {
                 });
         });
 
+        
         bidFifty.addEventListener('click', () => {
             const bidAmount = 50;
+
+            // DON'T CUT AND PASTE CODE LIKE THIS
+            // Only difference is the bidAmount and some of the button logic
+            // Try and consolidate into functions
 
             // check if user has enough money to bid
             // if highest bid plus bid amount is not higher than balance

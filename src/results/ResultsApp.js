@@ -20,7 +20,9 @@ class ResultsApp extends Component {
 
         activeLotsRef
             .child(lotKey)
+            // why "resetTimer"? Isn't it "winningBid" or something?
             .child('resetTimer')
+            // haha, straight from the nose: snap_sn_ot
             .on('value', snapsnot => {
                 const val = snapsnot.val();
                 const highestBid = val.highestBid;

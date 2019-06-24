@@ -42,19 +42,23 @@ class AddLot extends Component {
                     key: productRef.key
                 });
                 
-            const modal = dom.querySelector('#myModal');
+            // already defined above
+            // const modal = dom.querySelector('#myModal');
             modal.style.display = 'none';
             form.reset();
         });
+
         window.onclick = function(event) {
             if(event.target === modal) {
                 modal.style.display = 'none';
             } 
         };
+
         const closeModalButton = dom.querySelector('.close-modal');
         closeModalButton.addEventListener('click', () => {
             const modal = dom.querySelector('#myModal');
             modal.style.display = 'none';
+            // nice touch :)
             form.reset();
         });
         return dom;
@@ -79,7 +83,8 @@ class AddLot extends Component {
                     </div>
                     <button class="add-products-to-database">ADD</button>
                 </form>
-                <a id="close-modal" class="close-modal">&times;</a>
+                <!-- not a link, it's a button -->
+                <button id="close-modal" class="close-modal">&times;</button>
             </div>
         </div>
         `;

@@ -24,7 +24,6 @@ class ProductList extends Component {
         return /*html*/`
             <ul class="product-list-container"></ul>
         `;
-
     }
 }
 
