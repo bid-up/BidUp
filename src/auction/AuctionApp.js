@@ -43,14 +43,13 @@ class AuctionApp extends Component {
         
         return dom;
     }
+    
     renderTemplate() {
         return /*html*/`
             <div>
                 <main></main>
             </div>
-            
         `;
-
     }
 }
 

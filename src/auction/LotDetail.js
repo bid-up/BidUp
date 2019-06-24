@@ -2,6 +2,17 @@ import Component from '../Component.js';
 import { auth, usersByLotRef } from '../services/firebase.js';
 import ProductList from './ProductList.js';
 
+// move this out here, it is a PURE function:
+
+// function to generate random balance from min to max
+// min and max are in hundreds
+function getRandomBalance(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    const final = Math.floor(Math.random() * (max - min + 1)) + min;
+    return final * 100;
+}
+
 class LotDetail extends Component {
     render() {
         const dom = this.renderDOM();
@@ -9,15 +20,7 @@ class LotDetail extends Component {
         const lot = this.props.lot;
         const productListDiv = dom.querySelector('.product-list');
 
-        // function to generate random balance from min to max
-        // min and max are in hundreds
-        function getRandomBalance(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            const final = Math.floor(Math.random() * (max - min + 1)) + min;
-            return final * 100;
-        }
-
+        
         // When user joins, set initial balance and holding balance
         joinButton.addEventListener('click', () => {
             // Generate random balance in range from 100-500
