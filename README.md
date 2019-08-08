@@ -7,7 +7,7 @@ https://biduponline.com/auth.html
 
 # The Tech
 
-JavaScript
-Firebase
-HTML
-CSS
+* JavaScript
+* Firebase
+* HTML
+* CSS
