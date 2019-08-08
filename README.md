@@ -16,8 +16,8 @@ https://biduponline.com/
 
 # The Team
 
-* carlosus
-* codingclueless
-* lacrivella
-* liliboxer
-* sepuckett86
+* [carlosus](https://github.com/carlosus)
+* [codingclueless](https://github.com/codingclueless)
+* [lacrivella](https://github.com/lacrivella)
+* [liliboxer](https://github.com/liliboxer)
+* [sepuckett86](https://github.com/sepuckett86)
